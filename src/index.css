@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap");
 
 :root {
   --cream: #f6f1e4;
@@ -24,10 +24,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* keep #anchor targets clear of the fixed header */
+section[id],
+.room-card[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +43,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces", "Noto Serif Georgian", serif;
   font-weight: 500;
   color: var(--forest-deep);
   line-height: 1.15;
@@ -60,7 +66,7 @@ img {
 }
 
 .eyebrow {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -68,25 +74,132 @@ img {
   color: var(--terracotta);
 }
 
-/* ---------- header / nav ---------- */
+/* ---------- header / nav ----------
+   Two states:
+   1. Default (top of a hero page) — the bar itself is transparent and floats
+      over the photo; only a soft dark scrim (::before) sits behind the nav so
+      the links stay readable without hiding the image.
+   2. .solid / .compact — added by Header.jsx past ~60px of scroll: the scrim
+      fades out, a cream frosted layer fades in (.solid), and the bar shrinks
+      into the little header (.compact). .solid is also forced on pages with
+      no hero image, and while the mobile dropdown is open.
+*/
 header.site {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.4s ease,
+    backdrop-filter 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* the barely-there layer behind the nav while over the hero */
+header.site::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 26, 20, 0.45) 0%,
+    rgba(18, 26, 20, 0.18) 62%,
+    rgba(18, 26, 20, 0) 100%
+  );
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+header.site.solid::before {
+  opacity: 0;
+}
+
+header.site.solid {
   background: rgba(246, 241, 228, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom-color: var(--line);
+  box-shadow: 0 1px 18px rgba(40, 64, 45, 0.08);
 }
+
 header.site .bar {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 32px;
+  padding: 26px 32px;
   max-width: 1180px;
   margin: 0 auto;
+  transition: padding 0.35s ease;
+}
+/* the "little header" after scroll */
+header.site.compact .bar {
+  padding: 11px 32px;
+}
+header.site.compact .logo {
+  font-size: 1.25rem;
+}
+header.site.compact .btn-primary {
+  padding: 9px 20px;
+}
+
+/* --- light text while floating over the hero --- */
+header.site:not(.solid) .logo {
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+header.site:not(.solid) .logo span {
+  color: #e9d9b8;
+}
+header.site:not(.solid) nav.main a {
+  color: rgba(255, 255, 255, 0.82);
+}
+header.site:not(.solid) nav.main a:hover,
+header.site:not(.solid) nav.main a.active {
+  color: #fff;
+}
+header.site:not(.solid) nav.main a.active::after {
+  background: #e9d9b8;
+}
+header.site:not(.solid) .locale button {
+  color: #fff;
+  opacity: 0.7;
+}
+header.site:not(.solid) .locale button.active,
+header.site:not(.solid) .locale button:hover {
+  color: #e9d9b8;
+}
+header.site:not(.solid) .btn-primary {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+header.site:not(.solid) .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+header.site:not(.solid) .menu-toggle span {
+  background: #fff;
+}
+
+/* pages without a hero image (404) need room under the fixed header */
+.header-spacer {
+  height: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.site,
+  header.site::before,
+  header.site .bar {
+    transition: none;
+  }
 }
 .logo {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces", "Noto Serif Georgian", serif;
   font-style: italic;
   font-size: 1.5rem;
   color: var(--forest-deep);
@@ -156,7 +269,7 @@ nav.main a.active::after {
 
 .btn {
   display: inline-block;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -303,7 +416,7 @@ nav.main a.active::after {
   flex-wrap: wrap;
 }
 .hero-brand .wordmark {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces", "Noto Serif Georgian", serif;
   font-style: italic;
   font-weight: 500;
   font-size: clamp(3rem, 8vw, 6.4rem);
@@ -330,7 +443,7 @@ nav.main a.active::after {
   gap: 10px;
   color: #fff;
   opacity: 0.75;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -460,7 +573,7 @@ section.alt {
   margin-bottom: 16px;
 }
 .tile .price {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -576,13 +689,13 @@ section.alt {
   gap: 16px;
 }
 .room-card .price {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces", "Noto Serif Georgian", serif;
   font-style: italic;
   font-size: 1.4rem;
   color: var(--terracotta);
 }
 .room-card .price small {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 12px;
   color: var(--ink-soft);
   font-style: normal;
@@ -649,7 +762,7 @@ section.alt {
   border: 1px solid var(--line);
   background: var(--cream);
   padding: 12px 14px;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Noto Sans Georgian", sans-serif;
   font-size: 0.95rem;
   color: var(--ink);
   outline: none;

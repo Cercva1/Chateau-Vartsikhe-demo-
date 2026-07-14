@@ -6,7 +6,12 @@ import { useEffect, useRef, useState } from "react";
  * Renders as a plain <div> with the same class name shape as before
  * (className="reveal" plus "in" once visible) so the existing CSS just works.
  */
-export default function Reveal({ as: Tag = "div", className = "", children, ...rest }) {
+export default function Reveal({
+  as: Tag = "div",
+  className = "",
+  children,
+  ...rest
+}) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -27,7 +32,11 @@ export default function Reveal({ as: Tag = "div", className = "", children, ...r
   }, []);
 
   return (
-    <Tag ref={ref} className={`reveal${visible ? " in" : ""} ${className}`.trim()} {...rest}>
+    <Tag
+      ref={ref}
+      className={`reveal${visible ? " in" : ""} ${className}`.trim()}
+      {...rest}
+    >
       {children}
     </Tag>
   );

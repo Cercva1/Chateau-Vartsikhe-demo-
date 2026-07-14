@@ -1,9 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const LanguageContext = createContext(null);
 
-export function LanguageProvider({ children }) {
-  const [locale, setLocale] = useState("en");
+const STORAGE_KEY = "cv-locale";
+const SUPPORTED = ["en", "ka"];
+
+function initialLocale(fallback) {
+  if (typeof window === "undefined") return fallback;
+  const saved = window.localStorage.getItem(STORAGE_KEY);
+  return SUPPORTED.includes(saved) ? saved : fallback;
+}
+
+export function LanguageProvider({ children, defaultLocale = "en" }) {
+  const [locale, setLocale] = useState(() => initialLocale(defaultLocale));
+
+  // Remember the choice across reloads, and keep <html lang> honest so
+  // screen readers and search engines see the right language.
+  useEffect(() => {
+    window.localStorage.setItem(STORAGE_KEY, locale);
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>
       {children}

@@ -1,7 +1,12 @@
 import { useState } from "react";
 import Reveal from "../components/Reveal";
+import { useLanguage } from "../i18n/LanguageContext";
+import { contactPage } from "../i18n/contact";
 
 export default function Contact() {
+  const { locale } = useLanguage();
+  const t = contactPage[locale];
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -22,8 +27,8 @@ export default function Contact() {
         }}
       >
         <div className="wrap">
-          <span className="eyebrow">We're around</span>
-          <h1>Get in touch</h1>
+          <span className="eyebrow">{t.hero.eyebrow}</span>
+          <h1>{t.hero.heading}</h1>
         </div>
       </section>
 
@@ -32,21 +37,21 @@ export default function Contact() {
           <div className="contact-grid">
             <Reveal className="contact-info">
               <div className="item">
-                <span className="eyebrow">Address</span>
+                <span className="eyebrow">{t.info.addressLabel}</span>
                 <p>
-                  Chateau Vartsikhe
+                  {t.info.addressLine1}
                   <br />
-                  Imereti region, 15 minutes from Kutaisi, Georgia
+                  {t.info.addressLine2}
                 </p>
               </div>
               <div className="item">
-                <span className="eyebrow">Phone</span>
+                <span className="eyebrow">{t.info.phoneLabel}</span>
                 <p>
                   <a href="tel:+995558333393">+995 558 33 33 93</a>
                 </p>
               </div>
               <div className="item">
-                <span className="eyebrow">Email</span>
+                <span className="eyebrow">{t.info.emailLabel}</span>
                 <p>
                   <a href="mailto:info@chateauvartsikhe.ge">
                     info@chateauvartsikhe.ge
@@ -54,52 +59,49 @@ export default function Contact() {
                 </p>
               </div>
               <div className="item">
-                <span className="eyebrow">Front desk hours</span>
-                <p>
-                  08:00 – 22:00 daily. Grove Cabin guests may self check-in
-                  later.
-                </p>
+                <span className="eyebrow">{t.info.hoursLabel}</span>
+                <p>{t.info.hoursValue}</p>
               </div>
             </Reveal>
 
             <Reveal as="form" onSubmit={handleSubmit}>
               <div className="field" style={{ marginBottom: 20 }}>
-                <label htmlFor="c-name">Name</label>
+                <label htmlFor="c-name">{t.form.nameLabel}</label>
                 <input
                   id="c-name"
                   type="text"
-                  placeholder="Full name"
+                  placeholder={t.form.namePlaceholder}
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="field" style={{ marginBottom: 20 }}>
-                <label htmlFor="c-email">Email</label>
+                <label htmlFor="c-email">{t.form.emailLabel}</label>
                 <input
                   id="c-email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder={t.form.emailPlaceholder}
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="field" style={{ marginBottom: 20 }}>
-                <label htmlFor="c-message">Message</label>
+                <label htmlFor="c-message">{t.form.messageLabel}</label>
                 <textarea
                   id="c-message"
-                  placeholder="How can we help?"
+                  placeholder={t.form.messagePlaceholder}
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                Send message
+                {t.form.submit}
               </button>
               <div className={`confirm-msg${submitted ? " show" : ""}`}>
-                Thanks — we usually reply within a day.
+                {t.form.confirm}
               </div>
             </Reveal>
           </div>

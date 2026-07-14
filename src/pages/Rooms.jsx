@@ -1,10 +1,49 @@
 import Reveal from "../components/Reveal";
+import { useLanguage } from "../i18n/LanguageContext";
+import { roomsPage } from "../i18n/rooms";
 
 // Real OtelMS hosted booking page (confirmed working). Not yet deep-linkable
 // per specific room, so every Reserve button points here for now.
 const OTELMS_BOOKING_URL = "https://booking-114241.otelms.com/booking/rooms";
 
+// Everything language-independent lives here, indexed the same way as
+// roomsPage[locale].cards — so translations only ever touch the i18n file.
+const CARDS = [
+  {
+    id: "cottages",
+    anchor: "cottages",
+    img: "/assets/cottages.png",
+    price: 240,
+    reverse: false,
+  },
+  {
+    id: "stable",
+    anchor: "stable",
+    img: "/assets/stable.png",
+    price: 195,
+    reverse: true,
+  },
+  {
+    id: "grove",
+    anchor: "grove",
+    img: "/assets/grove.png",
+    price: 150,
+    reverse: false,
+  },
+  {
+    id: "main",
+    anchor: "main-house",
+    img: "/assets/bedroom-suite.png",
+    price: 310,
+    reverse: true,
+    miniImg: "/assets/bathroom.png",
+  },
+];
+
 export default function Rooms() {
+  const { locale } = useLanguage();
+  const t = roomsPage[locale];
+
   return (
     <>
       <section
@@ -15,161 +54,64 @@ export default function Rooms() {
         }}
       >
         <div className="wrap">
-          <span className="eyebrow">All room types</span>
-          <h1>Four ways to stay at Chateau Vartsikhe</h1>
+          <span className="eyebrow">{t.hero.eyebrow}</span>
+          <h1>{t.hero.heading}</h1>
         </div>
       </section>
 
       <section>
         <div className="wrap">
           <div className="rooms-list">
-            <Reveal as="div" className="room-card" id="cottages">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/cottages.png")' }}
-              />
-              <div className="body">
-                <span className="eyebrow">01 — Veranda Cottages</span>
-                <h3>The Veranda Cottages</h3>
-                <p>
-                  Three timber houses on stilts, laced in cast-iron trim the
-                  colour of an evening sky, set inside the Ajameti forest. Each
-                  keeps its own porch and its own quiet.
-                </p>
-                <div className="facts">
-                  <span>Sleeps 2–3</span>
-                  <span>32 m²</span>
-                  <span>1 double bed</span>
-                  <span>Private porch</span>
-                </div>
-                <div className="price-row">
-                  <div className="price">
-                    240 ₾ <small>/ night, Cottage I–II</small>
-                  </div>
-                  <a
-                    href={OTELMS_BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Reserve
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal as="div" className="room-card reverse" id="stable">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/stable.png")' }}
-              />
-              <div className="body">
-                <span className="eyebrow">02 — Stable House</span>
-                <h3>The Stable House</h3>
-                <p>
-                  Above the horses, four rooms with the same dark timber and
-                  tall shutters. Ride out before the field wakes, or don't — the
-                  horses are patient.
-                </p>
-                <div className="facts">
-                  <span>Sleeps 2–3</span>
-                  <span>28 m²</span>
-                  <span>Twin or double</span>
-                  <span>Riding on request</span>
-                </div>
-                <div className="price-row">
-                  <div className="price">
-                    195 ₾ <small>/ night, Loft</small>
-                  </div>
-                  <a
-                    href={OTELMS_BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Reserve
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal as="div" className="room-card" id="grove">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/grove.png")' }}
-              />
-              <div className="body">
-                <span className="eyebrow">03 — Grove Cabins</span>
-                <h3>The Grove Cabins</h3>
-                <p>
-                  Set back in the trees, lit only by lamplight after nine. The
-                  furthest thing from the road on the whole property.
-                </p>
-                <div className="facts">
-                  <span>Sleeps 1–2</span>
-                  <span>22 m²</span>
-                  <span>Single or twin</span>
-                  <span>Wood-lit terrace</span>
-                </div>
-                <div className="price-row">
-                  <div className="price">
-                    150 ₾ <small>/ night, single</small>
-                  </div>
-                  <a
-                    href={OTELMS_BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Reserve
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal as="div" className="room-card reverse" id="main-house">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/bedroom-suite.png")' }}
-              />
-              <div className="body">
-                <span className="eyebrow">04 — Main House Suites</span>
-                <h3>The Main House</h3>
-                <p>
-                  Upstairs rooms in the stone-and-timber main building, closest
-                  to the pool and the breakfast terrace, for guests who want to
-                  be in the middle of things.
-                </p>
-                <div className="facts">
-                  <span>Sleeps 2–4</span>
-                  <span>40 m²</span>
-                  <span>Balcony</span>
-                  <span>Pool view</span>
-                </div>
-                <div className="mini-gallery">
+            {CARDS.map((card, i) => {
+              const copy = t.cards[i];
+              return (
+                <Reveal
+                  as="div"
+                  className={`room-card${card.reverse ? " reverse" : ""}`}
+                  id={card.anchor}
+                  key={card.id}
+                >
                   <div
-                    className="mini-shot"
-                    style={{ backgroundImage: 'url("/assets/bathroom.png")' }}
+                    className="img"
+                    style={{ backgroundImage: `url("${card.img}")` }}
                   />
-                  <span className="mini-label">
-                    Ensuite bathroom with freestanding tub
-                  </span>
-                </div>
-                <div className="price-row">
-                  <div className="price">
-                    310 ₾ <small>/ night, suite</small>
+                  <div className="body">
+                    <span className="eyebrow">{copy.eyebrow}</span>
+                    <h3>{copy.title}</h3>
+                    <p>{copy.body}</p>
+                    <div className="facts">
+                      {copy.facts.map((fact) => (
+                        <span key={fact}>{fact}</span>
+                      ))}
+                    </div>
+
+                    {card.miniImg && (
+                      <div className="mini-gallery">
+                        <div
+                          className="mini-shot"
+                          style={{ backgroundImage: `url("${card.miniImg}")` }}
+                        />
+                        <span className="mini-label">{copy.miniLabel}</span>
+                      </div>
+                    )}
+
+                    <div className="price-row">
+                      <div className="price">
+                        {card.price} ₾ <small>{copy.priceNote}</small>
+                      </div>
+                      <a
+                        href={OTELMS_BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                      >
+                        {t.reserve}
+                      </a>
+                    </div>
                   </div>
-                  <a
-                    href={OTELMS_BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Reserve
-                  </a>
-                </div>
-              </div>
-            </Reveal>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -177,7 +119,7 @@ export default function Rooms() {
       <section className="alt">
         <div className="wrap" style={{ textAlign: "center" }}>
           <Reveal>
-            <span className="eyebrow">Not sure which fits</span>
+            <span className="eyebrow">{t.cta.eyebrow}</span>
             <h2
               style={{
                 fontStyle: "italic",
@@ -185,7 +127,7 @@ export default function Rooms() {
                 margin: "14px 0 26px",
               }}
             >
-              Tell us your dates — we'll suggest a room.
+              {t.cta.heading}
             </h2>
             <a
               href={OTELMS_BOOKING_URL}
@@ -193,7 +135,7 @@ export default function Rooms() {
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Go to booking
+              {t.cta.button}
             </a>
           </Reveal>
         </div>
