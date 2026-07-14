@@ -75,14 +75,15 @@ img {
 }
 
 /* ---------- header / nav ----------
-   Two states:
-   1. Default (top of a hero page) — the bar itself is transparent and floats
-      over the photo; only a soft dark scrim (::before) sits behind the nav so
-      the links stay readable without hiding the image.
-   2. .solid / .compact — added by Header.jsx past ~60px of scroll: the scrim
-      fades out, a cream frosted layer fades in (.solid), and the bar shrinks
-      into the little header (.compact). .solid is also forced on pages with
-      no hero image, and while the mobile dropdown is open.
+   The readable cream bar is the DEFAULT state. The light-text state is opt-in
+   via .at-top, which Header.jsx adds only while the bar is genuinely floating
+   over a hero photo. Written this way round on purpose: if the JS and this
+   file ever fall out of sync, the failure is a cream header over a photo
+   (ugly) rather than white text on cream (invisible).
+
+   .at-top   — transparent bar + soft scrim, light text. Hero pages, unscrolled.
+   .compact  — the little header: shrinks the bar. Added past ~60px of scroll.
+   Neither class is required for the header to be usable.
 */
 header.site {
   position: fixed;
@@ -90,8 +91,10 @@ header.site {
   left: 0;
   right: 0;
   z-index: 100;
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: rgba(246, 241, 228, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 18px rgba(40, 64, 45, 0.08);
   transition:
     background 0.4s ease,
     backdrop-filter 0.4s ease,
@@ -99,30 +102,31 @@ header.site {
     box-shadow 0.4s ease;
 }
 
-/* the barely-there layer behind the nav while over the hero */
+/* --- floating over the hero --- */
+header.site.at-top {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+/* the barely-there layer that keeps nav links legible over the photo */
 header.site::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
+  opacity: 0;
   background: linear-gradient(
     180deg,
     rgba(18, 26, 20, 0.45) 0%,
     rgba(18, 26, 20, 0.18) 62%,
     rgba(18, 26, 20, 0) 100%
   );
-  opacity: 1;
   transition: opacity 0.4s ease;
 }
-header.site.solid::before {
-  opacity: 0;
-}
-
-header.site.solid {
-  background: rgba(246, 241, 228, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom-color: var(--line);
-  box-shadow: 0 1px 18px rgba(40, 64, 45, 0.08);
+header.site.at-top::before {
+  opacity: 1;
 }
 
 header.site .bar {
@@ -147,43 +151,52 @@ header.site.compact .btn-primary {
   padding: 9px 20px;
 }
 
-/* --- light text while floating over the hero --- */
-header.site:not(.solid) .logo {
+/* --- light text, only while over the hero --- */
+header.site.at-top .logo {
   color: #fff;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
 }
-header.site:not(.solid) .logo span {
+header.site.at-top .logo span {
   color: #e9d9b8;
 }
-header.site:not(.solid) nav.main a {
+header.site.at-top nav.main a {
   color: rgba(255, 255, 255, 0.82);
 }
-header.site:not(.solid) nav.main a:hover,
-header.site:not(.solid) nav.main a.active {
+header.site.at-top nav.main a:hover,
+header.site.at-top nav.main a.active {
   color: #fff;
 }
-header.site:not(.solid) nav.main a.active::after {
+header.site.at-top nav.main a.active::after {
   background: #e9d9b8;
 }
-header.site:not(.solid) .locale button {
+header.site.at-top .locale button {
   color: #fff;
   opacity: 0.7;
 }
-header.site:not(.solid) .locale button.active,
-header.site:not(.solid) .locale button:hover {
+header.site.at-top .locale button.active,
+header.site.at-top .locale button:hover {
   color: #e9d9b8;
+  opacity: 1;
 }
-header.site:not(.solid) .btn-primary {
+header.site.at-top .btn-primary {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.55);
   color: #fff;
   backdrop-filter: blur(4px);
 }
-header.site:not(.solid) .btn-primary:hover {
+header.site.at-top .btn-primary:hover {
   background: rgba(255, 255, 255, 0.24);
 }
-header.site:not(.solid) .menu-toggle span {
+header.site.at-top .menu-toggle span {
   background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.site,
+  header.site::before,
+  header.site .bar {
+    transition: none;
+  }
 }
 
 /* pages without a hero image (404) need room under the fixed header */

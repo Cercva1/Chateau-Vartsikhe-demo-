@@ -5,9 +5,9 @@ import { chrome } from "../i18n/chrome";
 
 const LOCALES = ["en", "ka"];
 
-// Routes whose first section is a full-bleed hero image — on these the header
-// floats transparently over the photo until you scroll. Anything else (404)
-// gets the solid bar immediately, plus a spacer so content isn't hidden under
+// Routes whose first section is a full-bleed hero image — only these get the
+// transparent .at-top treatment, and only until you scroll. Anything else (404)
+// gets the cream bar immediately, plus a spacer so content isn't hidden under
 // the now-fixed header.
 const HERO_ROUTES = ["/", "/rooms", "/policies", "/about", "/contact"];
 
@@ -33,17 +33,18 @@ export default function Header() {
   // Close the mobile menu whenever the route changes.
   useEffect(() => setMenuOpen(false), [pathname]);
 
-  // Opaque once scrolled, on non-hero pages, or while the mobile dropdown is
-  // open (the dropdown needs an opaque bar above it). Shrinking to the little
-  // header, though, is purely a scroll thing — opening the menu shouldn't
-  // collapse the bar under your finger.
-  const solid = scrolled || !overHero || menuOpen;
+  // Transparent ONLY while parked at the top of a hero page with the menu shut.
+  // Every other case — scrolled, no hero, or mobile dropdown open (it needs an
+  // opaque bar above it) — falls back to the readable cream default.
+  const atTop = overHero && !scrolled && !menuOpen;
+  // Shrinking to the little header is purely a scroll thing: opening the menu
+  // shouldn't collapse the bar under your finger.
   const compact = scrolled;
 
   return (
     <>
       <header
-        className={`site${solid ? " solid" : ""}${compact ? " compact" : ""}`}
+        className={`site${atTop ? " at-top" : ""}${compact ? " compact" : ""}`}
       >
         <div className="bar">
           <Link to="/" className="logo">
