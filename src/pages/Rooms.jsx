@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+
+// Real OtelMS hosted booking page (confirmed working). Not yet deep-linkable
+// per specific room, so every Reserve button points here for now.
+const OTELMS_BOOKING_URL = "https://booking-114241.otelms.com/booking/rooms";
 
 export default function Rooms() {
   return (
@@ -30,8 +33,8 @@ export default function Rooms() {
                 <h3>The Veranda Cottages</h3>
                 <p>
                   Three timber houses on stilts, laced in cast-iron trim the
-                  colour of an evening sky, set inside the Ajameti forest.
-                  Each keeps its own porch and its own quiet.
+                  colour of an evening sky, set inside the Ajameti forest. Each
+                  keeps its own porch and its own quiet.
                 </p>
                 <div className="facts">
                   <span>Sleeps 2–3</span>
@@ -43,9 +46,14 @@ export default function Rooms() {
                   <div className="price">
                     240 ₾ <small>/ night, Cottage I–II</small>
                   </div>
-                  <Link to="/booking?room=cottage" className="btn btn-primary">
+                  <a
+                    href={OTELMS_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
                     Reserve
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -60,8 +68,8 @@ export default function Rooms() {
                 <h3>The Stable House</h3>
                 <p>
                   Above the horses, four rooms with the same dark timber and
-                  tall shutters. Ride out before the field wakes, or don't —
-                  the horses are patient.
+                  tall shutters. Ride out before the field wakes, or don't — the
+                  horses are patient.
                 </p>
                 <div className="facts">
                   <span>Sleeps 2–3</span>
@@ -73,9 +81,14 @@ export default function Rooms() {
                   <div className="price">
                     195 ₾ <small>/ night, Loft</small>
                   </div>
-                  <Link to="/booking?room=stable" className="btn btn-primary">
+                  <a
+                    href={OTELMS_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
                     Reserve
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -89,8 +102,8 @@ export default function Rooms() {
                 <span className="eyebrow">03 — Grove Cabins</span>
                 <h3>The Grove Cabins</h3>
                 <p>
-                  Set back in the trees, lit only by lamplight after nine.
-                  The furthest thing from the road on the whole property.
+                  Set back in the trees, lit only by lamplight after nine. The
+                  furthest thing from the road on the whole property.
                 </p>
                 <div className="facts">
                   <span>Sleeps 1–2</span>
@@ -102,9 +115,14 @@ export default function Rooms() {
                   <div className="price">
                     150 ₾ <small>/ night, single</small>
                   </div>
-                  <Link to="/booking?room=grove" className="btn btn-primary">
+                  <a
+                    href={OTELMS_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
                     Reserve
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -118,9 +136,9 @@ export default function Rooms() {
                 <span className="eyebrow">04 — Main House Suites</span>
                 <h3>The Main House</h3>
                 <p>
-                  Upstairs rooms in the stone-and-timber main building,
-                  closest to the pool and the breakfast terrace, for guests
-                  who want to be in the middle of things.
+                  Upstairs rooms in the stone-and-timber main building, closest
+                  to the pool and the breakfast terrace, for guests who want to
+                  be in the middle of things.
                 </p>
                 <div className="facts">
                   <span>Sleeps 2–4</span>
@@ -141,9 +159,14 @@ export default function Rooms() {
                   <div className="price">
                     310 ₾ <small>/ night, suite</small>
                   </div>
-                  <Link to="/booking?room=main" className="btn btn-primary">
+                  <a
+                    href={OTELMS_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
                     Reserve
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -164,9 +187,14 @@ export default function Rooms() {
             >
               Tell us your dates — we'll suggest a room.
             </h2>
-            <Link to="/booking" className="btn btn-primary">
+            <a
+              href={OTELMS_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               Go to booking
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>
