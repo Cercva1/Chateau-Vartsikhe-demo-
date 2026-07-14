@@ -490,42 +490,6 @@ nav.main a.active::after {
   }
 }
 
-/* ---------- floating header over the full-bleed slideshow (home page only) ---------- */
-body:has(.hero-slideshow) header.site {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: transparent;
-  border-bottom: none;
-  backdrop-filter: none;
-}
-body:has(.hero-slideshow) header.site .logo,
-body:has(.hero-slideshow) header.site nav.main a,
-body:has(.hero-slideshow) header.site .locale button {
-  color: #fff;
-}
-body:has(.hero-slideshow) header.site .logo span {
-  color: var(--terracotta);
-}
-body:has(.hero-slideshow) header.site nav.main a.active,
-body:has(.hero-slideshow) header.site nav.main a:hover {
-  color: var(--terracotta);
-}
-body:has(.hero-slideshow) header.site .locale button.active,
-body:has(.hero-slideshow) header.site .locale button:hover {
-  color: var(--terracotta);
-}
-body:has(.hero-slideshow) header.site .menu-toggle span {
-  background: #fff;
-}
-body:has(.hero-slideshow) header.site nav.main.open {
-  background: var(--cream);
-}
-body:has(.hero-slideshow) header.site nav.main.open a {
-  color: var(--forest-deep);
-}
-
 /* ---------- sections ---------- */
 section {
   padding: 96px 0;
