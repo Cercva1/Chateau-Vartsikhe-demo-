@@ -1,74 +1,53 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 import HeroSlideshow from "../components/HeroSlideshow";
+import { useLanguage } from "../i18n/LanguageContext";
+import { home } from "../i18n/home";
+
+const TILE_IMAGES = [
+  "/assets/cottages.png",
+  "/assets/stable.png",
+  "/assets/grove.png",
+];
+const TILE_ANCHORS = ["/rooms#cottages", "/rooms#stable", "/rooms#grove"];
+const ON_ESTATE_IMAGES = [
+  "/assets/pool-indoor-2.png",
+  "/assets/dining-hall.png",
+  "/assets/toast.png",
+];
 
 export default function Home() {
+  const { locale } = useLanguage();
+  const t = home[locale];
+
   return (
     <>
-      <HeroSlideshow />
+      <HeroSlideshow taglineNode={t.heroTagline} scrollLabel={t.scroll} />
 
       <section id="after-hero">
         <div className="wrap">
           <Reveal className="section-head">
-            <span className="eyebrow">Where to stay</span>
-            <h2>Four kinds of quiet</h2>
-            <p>
-              Each room type keeps its own character — pick the one that
-              matches your visit.
-            </p>
+            <span className="eyebrow">{t.whereToStay.eyebrow}</span>
+            <h2>{t.whereToStay.heading}</h2>
+            <p>{t.whereToStay.body}</p>
           </Reveal>
           <div className="grid-3">
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/cottages.png")' }}
-              />
-              <div className="body">
-                <h3>Veranda Cottages</h3>
-                <p>
-                  Timber houses on stilts with lace-iron trim, set inside the
-                  Ajameti forest with a private porch onto the trees.
-                </p>
-                <div className="price">from 240 ₾ / night</div>
-                <Link to="/rooms#cottages" className="more">
-                  View details →
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/stable.png")' }}
-              />
-              <div className="body">
-                <h3>Stable House</h3>
-                <p>
-                  Rooms above the horses, with riding out at dawn included for
-                  guests who want it.
-                </p>
-                <div className="price">from 195 ₾ / night</div>
-                <Link to="/rooms#stable" className="more">
-                  View details →
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/grove.png")' }}
-              />
-              <div className="body">
-                <h3>Grove Cabins</h3>
-                <p>
-                  Set back among the trees, lamp-lit after dark, built for
-                  guests who want distance.
-                </p>
-                <div className="price">from 150 ₾ / night</div>
-                <Link to="/rooms#grove" className="more">
-                  View details →
-                </Link>
-              </div>
-            </Reveal>
+            {t.tiles.map((tile, i) => (
+              <Reveal className="tile" key={tile.title}>
+                <div
+                  className="img"
+                  style={{ backgroundImage: `url("${TILE_IMAGES[i]}")` }}
+                />
+                <div className="body">
+                  <h3>{tile.title}</h3>
+                  <p>{tile.body}</p>
+                  <div className="price">{tile.price}</div>
+                  <Link to={TILE_ANCHORS[i]} className="more">
+                    {tile.link}
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -81,16 +60,11 @@ export default function Home() {
               alt="Outdoor pool and loungers at Chateau Vartsikhe"
             />
             <div>
-              <span className="eyebrow">The grounds</span>
-              <h2>A pool, a private lake, and 120 hectares to explore</h2>
-              <p>
-                The main house looks out over a swimming pool and an
-                artificial lake where guests go boating and fishing.
-                Basketball and volleyball courts, a working wine cellar, and
-                even a small snail farm round out the estate.
-              </p>
+              <span className="eyebrow">{t.grounds.eyebrow}</span>
+              <h2>{t.grounds.heading}</h2>
+              <p>{t.grounds.body}</p>
               <Link to="/about" className="btn btn-outline">
-                More about the estate
+                {t.grounds.cta}
               </Link>
             </div>
           </Reveal>
@@ -102,15 +76,11 @@ export default function Home() {
           <Reveal className="split reverse">
             <img src="/assets/grove.png" alt="Grove cabin lit at dusk" />
             <div>
-              <span className="eyebrow">After dark</span>
-              <h2>Evenings are slower in the forest</h2>
-              <p>
-                No streetlights, no traffic — just lamplight through the
-                Ajameti trees. Bar and restaurant on site, with wine from the
-                estate's own cellar.
-              </p>
+              <span className="eyebrow">{t.afterDark.eyebrow}</span>
+              <h2>{t.afterDark.heading}</h2>
+              <p>{t.afterDark.body}</p>
               <Link to="/rooms" className="btn btn-outline">
-                See all rooms
+                {t.afterDark.cta}
               </Link>
             </div>
           </Reveal>
@@ -120,53 +90,23 @@ export default function Home() {
       <section className="alt">
         <div className="wrap">
           <Reveal className="section-head">
-            <span className="eyebrow">On the estate</span>
-            <h2>More than a place to sleep</h2>
-            <p>
-              An indoor pool for cooler days, a long table for private
-              dinners, and a glass of the estate's own wine at sunset.
-            </p>
+            <span className="eyebrow">{t.onEstate.eyebrow}</span>
+            <h2>{t.onEstate.heading}</h2>
+            <p>{t.onEstate.body}</p>
           </Reveal>
           <div className="grid-3">
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/pool-indoor-2.png")' }}
-              />
-              <div className="body">
-                <h3>The indoor pool</h3>
-                <p>
-                  Arched brick windows and chandeliers over a heated pool,
-                  open year-round regardless of weather.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/dining-hall.png")' }}
-              />
-              <div className="body">
-                <h3>Wine cellar &amp; dining</h3>
-                <p>
-                  Long-table dinners by the fire, poured from the estate's own
-                  cellar — set up for groups on request.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal className="tile">
-              <div
-                className="img"
-                style={{ backgroundImage: 'url("/assets/toast.png")' }}
-              />
-              <div className="body">
-                <h3>Evenings by the lake</h3>
-                <p>
-                  Wine tastings and gatherings on the grass at sunset, with
-                  the lake just behind.
-                </p>
-              </div>
-            </Reveal>
+            {t.onEstateTiles.map((tile, i) => (
+              <Reveal className="tile" key={tile.title}>
+                <div
+                  className="img"
+                  style={{ backgroundImage: `url("${ON_ESTATE_IMAGES[i]}")` }}
+                />
+                <div className="body">
+                  <h3>{tile.title}</h3>
+                  <p>{tile.body}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -174,7 +114,7 @@ export default function Home() {
       <section>
         <div className="wrap" style={{ textAlign: "center" }}>
           <Reveal>
-            <span className="eyebrow">Ready when you are</span>
+            <span className="eyebrow">{t.readyWhenYouAre.eyebrow}</span>
             <h2
               style={{
                 fontStyle: "italic",
@@ -182,10 +122,10 @@ export default function Home() {
                 margin: "14px 0 26px",
               }}
             >
-              Check dates, see prices, and reserve in a few minutes.
+              {t.readyWhenYouAre.heading}
             </h2>
-            <Link to="/booking" className="btn btn-primary">
-              Start booking
+            <Link to="/rooms" className="btn btn-primary">
+              {t.readyWhenYouAre.cta}
             </Link>
           </Reveal>
         </div>

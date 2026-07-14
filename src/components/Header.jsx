@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
+import { chrome } from "../i18n/chrome";
 
-const LOCALES = ["en", "ka", "ru"];
+const LOCALES = ["en", "ka"];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [locale, setLocale] = useState("en");
+  const { locale, setLocale } = useLanguage();
+  const t = chrome[locale];
 
   return (
     <header className="site">
@@ -16,22 +19,19 @@ export default function Header() {
 
         <nav className={`main${menuOpen ? " open" : ""}`}>
           <NavLink to="/" end onClick={() => setMenuOpen(false)}>
-            Home
+            {t.nav.home}
           </NavLink>
           <NavLink to="/rooms" onClick={() => setMenuOpen(false)}>
-            Rooms
-          </NavLink>
-          <NavLink to="/booking" onClick={() => setMenuOpen(false)}>
-            Booking
+            {t.nav.rooms}
           </NavLink>
           <NavLink to="/policies" onClick={() => setMenuOpen(false)}>
-            Policies
+            {t.nav.policies}
           </NavLink>
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>
-            About
+            {t.nav.about}
           </NavLink>
           <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
+            {t.nav.contact}
           </NavLink>
         </nav>
 
@@ -48,8 +48,8 @@ export default function Header() {
               </button>
             ))}
           </div>
-          <Link to="/booking" className="btn btn-primary">
-            Book now
+          <Link to="/rooms" className="btn btn-primary">
+            {t.bookNow}
           </Link>
           <button
             type="button"

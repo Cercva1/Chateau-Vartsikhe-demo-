@@ -8,7 +8,7 @@ const SLIDES = [
   "/assets/grove.png",
 ];
 
-export default function HeroSlideshow() {
+export default function HeroSlideshow({ taglineNode, scrollLabel = "scroll" }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -32,16 +32,11 @@ export default function HeroSlideshow() {
           <div className="wordmark">Vartsikhe</div>
           <div className="divider-line"></div>
           <div className="hero-tagline">
-            <p>
-              A forest estate in Imereti,
-              <br />
-              fifteen minutes from Kutaisi —<br />
-              pool, lake, and cottages among the trees.
-            </p>
+            <p>{taglineNode}</p>
           </div>
         </div>
         <a href="#after-hero" className="scroll-cue">
-          <span>scroll</span>
+          <span>{scrollLabel}</span>
           <div className="arrow">↓</div>
         </a>
       </div>
