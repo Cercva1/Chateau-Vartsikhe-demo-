@@ -1,44 +1,8 @@
+import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
 import { roomsPage } from "../i18n/rooms";
-
-// Real OtelMS hosted booking page (confirmed working). Not yet deep-linkable
-// per specific room, so every Reserve button points here for now.
-const OTELMS_BOOKING_URL = "https://booking-114241.otelms.com/booking/rooms";
-
-// Everything language-independent lives here, indexed the same way as
-// roomsPage[locale].cards — so translations only ever touch the i18n file.
-const CARDS = [
-  {
-    id: "cottages",
-    anchor: "cottages",
-    img: "/assets/cottages.png",
-    price: 240,
-    reverse: false,
-  },
-  {
-    id: "stable",
-    anchor: "stable",
-    img: "/assets/stable.png",
-    price: 195,
-    reverse: true,
-  },
-  {
-    id: "grove",
-    anchor: "grove",
-    img: "/assets/grove.png",
-    price: 150,
-    reverse: false,
-  },
-  {
-    id: "main",
-    anchor: "main-house",
-    img: "/assets/bedroom-suite.png",
-    price: 310,
-    reverse: true,
-    miniImg: "/assets/bathroom.png",
-  },
-];
+import { CARDS } from "../data/roomsCatalog";
 
 export default function Rooms() {
   const { locale } = useLanguage();
@@ -67,7 +31,7 @@ export default function Rooms() {
               return (
                 <Reveal
                   as="div"
-                  className={`room-card${card.reverse ? " reverse" : ""}`}
+                  className={`room-card${i % 2 === 1 ? " reverse" : ""}`}
                   id={card.anchor}
                   key={card.id}
                 >
@@ -99,14 +63,12 @@ export default function Rooms() {
                       <div className="price">
                         {card.price} ₾ <small>{copy.priceNote}</small>
                       </div>
-                      <a
-                        href={OTELMS_BOOKING_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to={`/rooms/${card.id}`}
                         className="btn btn-primary"
                       >
-                        {t.reserve}
-                      </a>
+                        {t.viewDetails}
+                      </Link>
                     </div>
                   </div>
                 </Reveal>
@@ -129,14 +91,11 @@ export default function Rooms() {
             >
               {t.cta.heading}
             </h2>
-            <a
-              href={OTELMS_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              {t.cta.button}
-            </a>
+            <p style={{ color: "var(--ink-soft)" }}>
+              {locale === "ka"
+                ? "აირჩიეთ ოთახი ზემოთ — დეტალები და დაჯავშნის ღილაკი იმ გვერდზეა."
+                : "Pick a room above to see photos and details, then reserve from there."}
+            </p>
           </Reveal>
         </div>
       </section>

@@ -8,6 +8,8 @@ export const roomsPage = {
       heading: "Four ways to stay at Chateau Vartsikhe",
     },
     reserve: "Reserve",
+    viewDetails: "View details",
+    backToRooms: "← All rooms",
     cards: [
       {
         eyebrow: "01 — Veranda Cottages",
@@ -52,6 +54,8 @@ export const roomsPage = {
       heading: "დარჩენის ოთხი გზა შატო ვარწიხეში",
     },
     reserve: "დაჯავშნა",
+    viewDetails: "დეტალურად",
+    backToRooms: "← ყველა ოთახი",
     cards: [
       {
         eyebrow: "01 — ვერანდის კოტეჯები",

@@ -5,6 +5,7 @@ import ScrollManager from "./components/ScrollManager";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
+import RoomDetail from "./pages/RoomDetail";
 import Policies from "./pages/Policies";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms/:roomId" element={<RoomDetail />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
