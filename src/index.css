@@ -259,7 +259,7 @@ nav.main a.active::after {
 
 .locale {
   display: flex;
-  gap: 8px;
+  gap: 0;
   font-size: 12px;
   font-weight: 600;
 }
@@ -270,6 +270,8 @@ nav.main a.active::after {
   color: var(--ink-soft);
   opacity: 0.55;
   letter-spacing: 0.05em;
+  padding: 11px 8px;
+  min-height: 38px;
   transition:
     opacity 0.3s ease,
     color 0.3s ease;
@@ -316,15 +318,22 @@ nav.main a.active::after {
 .menu-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 14px 12px;
+  min-width: 44px;
+  min-height: 44px;
 }
 .menu-toggle span {
   width: 22px;
   height: 2px;
   background: var(--forest-deep);
+}
+.nav-book-now {
+  display: none;
 }
 
 /* ---------- hero ---------- */
@@ -361,6 +370,7 @@ nav.main a.active::after {
   font-style: italic;
   margin: 16px 0 20px;
   max-width: 780px;
+  overflow-wrap: break-word;
 }
 .hero p {
   max-width: 520px;
@@ -923,6 +933,12 @@ footer.site .col a {
   .menu-toggle {
     display: flex;
   }
+  .header-right {
+    gap: 4px;
+  }
+  .header-right > a.btn-primary {
+    display: none;
+  }
   .grid-3 {
     grid-template-columns: 1fr;
   }
@@ -971,5 +987,20 @@ footer.site .col a {
     padding: 20px 32px 30px;
     border-bottom: 1px solid var(--line);
     gap: 18px;
+  }
+  nav.main.open .nav-book-now {
+    display: inline-block;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+/* Extra-narrow phones (iPhone SE, older Android): the hero h1's clamp()
+   minimum is too large for long unbroken words (Georgian in particular
+   doesn't wrap the way English does), so give it a smaller floor here
+   rather than relying only on mid-word breaking. */
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
   }
 }

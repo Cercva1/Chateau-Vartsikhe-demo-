@@ -67,6 +67,13 @@ export default function Header() {
             <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
               {t.nav.contact}
             </NavLink>
+            <Link
+              to="/rooms"
+              className="btn btn-primary nav-book-now"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.bookNow}
+            </Link>
           </nav>
 
           <div className="header-right">
