@@ -5,11 +5,15 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { home } from "../i18n/home";
 
 const TILE_IMAGES = [
-  "/assets/cottages.png",
-  "/assets/stable.png",
-  "/assets/grove.png",
+  "/assets/rooms/stone-house-1.jpg",
+  "/assets/rooms/lake-house.jpg",
+  "/assets/rooms/dome.jpg",
 ];
-const TILE_ANCHORS = ["/rooms#cottages", "/rooms#stable", "/rooms#grove"];
+const TILE_ANCHORS = [
+  "/rooms#stone-house-1",
+  "/rooms#lake-house",
+  "/rooms#dome",
+];
 const ON_ESTATE_IMAGES = [
   "/assets/pool-indoor-2.png",
   "/assets/dining-hall.png",
@@ -74,7 +78,10 @@ export default function Home() {
       <section>
         <div className="wrap">
           <Reveal className="split reverse">
-            <img src="/assets/grove.png" alt="Grove cabin lit at dusk" />
+            <img
+              src="/assets/rooms/forest-cabin.jpg"
+              alt="Forest cabin at dusk"
+            />
             <div>
               <span className="eyebrow">{t.afterDark.eyebrow}</span>
               <h2>{t.afterDark.heading}</h2>

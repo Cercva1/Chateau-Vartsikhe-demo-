@@ -25,7 +25,10 @@ export default function About() {
       <section>
         <div className="wrap">
           <Reveal className="split">
-            <img src="/assets/cottages.png" alt={t.where.imgAlt} />
+            <img
+              src="/assets/rooms/otskhanuri-villa.jpg"
+              alt={t.where.imgAlt}
+            />
             <div>
               <span className="eyebrow">{t.where.eyebrow}</span>
               <h2>{t.where.heading}</h2>
@@ -39,7 +42,10 @@ export default function About() {
       <section className="alt">
         <div className="wrap">
           <Reveal className="split reverse">
-            <img src="/assets/stable.png" alt={t.grounds.imgAlt} />
+            <img
+              src="/assets/rooms/vineyard-house.jpg"
+              alt={t.grounds.imgAlt}
+            />
             <div>
               <span className="eyebrow">{t.grounds.eyebrow}</span>
               <h2>{t.grounds.heading}</h2>
@@ -53,6 +59,54 @@ export default function About() {
       </section>
 
       <section>
+        <div className="wrap" style={{ maxWidth: 900 }}>
+          <Reveal className="section-head">
+            <span className="eyebrow">{t.experiences.eyebrow}</span>
+            <h2>{t.experiences.heading}</h2>
+            <p>{t.experiences.intro}</p>
+          </Reveal>
+
+          <Reveal>
+            <h3 style={{ fontSize: "1.1rem", margin: "8px 0 14px" }}>
+              {t.experiences.facilitiesHeading}
+            </h3>
+            <div className="facts" style={{ marginBottom: 36 }}>
+              {t.experiences.facilities.map((f) => (
+                <span key={f}>{f}</span>
+              ))}
+            </div>
+
+            <h3 style={{ fontSize: "1.1rem", margin: "8px 0 14px" }}>
+              {t.experiences.activitiesHeading}
+            </h3>
+            <div className="policy-grid" style={{ marginBottom: 20 }}>
+              <div className="policy-card">
+                <ul>
+                  {t.experiences.activities.slice(0, 5).map((a) => (
+                    <li key={a.name}>
+                      {a.name} — <strong>{a.price}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="policy-card">
+                <ul>
+                  {t.experiences.activities.slice(5).map((a) => (
+                    <li key={a.name}>
+                      {a.name} — <strong>{a.price}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p style={{ fontSize: "0.85rem", color: "var(--ink-soft)" }}>
+              {t.experiences.note}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="alt">
         <div className="wrap">
           <Reveal className="split">
             <img src="/assets/toast.png" alt={t.evenings.imgAlt} />

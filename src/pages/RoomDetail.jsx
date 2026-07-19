@@ -68,24 +68,41 @@ export default function RoomDetail() {
               {copy.body}
             </p>
 
-            <div className="facts" style={{ marginBottom: 8 }}>
+            <div className="facts" style={{ marginBottom: 28 }}>
               {copy.facts.map((fact) => (
                 <span key={fact}>{fact}</span>
               ))}
             </div>
 
-            {card.miniImg && (
-              <div className="mini-gallery">
-                <div
-                  className="mini-shot"
-                  style={{ backgroundImage: `url("${card.miniImg}")` }}
-                />
-                <span className="mini-label">{copy.miniLabel}</span>
-              </div>
-            )}
+            <h3 style={{ fontSize: "1.1rem", marginBottom: 14 }}>
+              {t.amenitiesHeading}
+            </h3>
+            <ul
+              style={{
+                marginBottom: 32,
+                paddingLeft: 20,
+                lineHeight: 1.9,
+                color: "var(--ink-soft)",
+              }}
+            >
+              {copy.amenities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
 
-            <div className="price" style={{ margin: "24px 0 40px" }}>
-              {card.price} ₾ <small>{copy.priceNote}</small>
+            <div style={{ margin: "24px 0 40px" }}>
+              <div className="price">
+                {card.price} ₾ <small>{copy.priceNote}</small>
+              </div>
+              <div
+                style={{
+                  fontSize: "0.9rem",
+                  color: "var(--ink-soft)",
+                  marginTop: 4,
+                }}
+              >
+                {card.priceWithBreakfast} ₾ {t.withBreakfast}
+              </div>
             </div>
 
             <div style={{ textAlign: "center" }}>

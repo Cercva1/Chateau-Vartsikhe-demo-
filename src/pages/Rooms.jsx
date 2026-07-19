@@ -13,7 +13,7 @@ export default function Rooms() {
       <section
         className="hero small"
         style={{
-          backgroundImage: 'url("/assets/cottages.png")',
+          backgroundImage: 'url("/assets/rooms/vineyard-house.jpg")',
           minHeight: "38vh",
         }}
       >
@@ -60,8 +60,19 @@ export default function Rooms() {
                     )}
 
                     <div className="price-row">
-                      <div className="price">
-                        {card.price} ₾ <small>{copy.priceNote}</small>
+                      <div>
+                        <div className="price">
+                          {card.price} ₾ <small>{copy.priceNote}</small>
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "0.8rem",
+                            color: "var(--ink-soft)",
+                            marginTop: 2,
+                          }}
+                        >
+                          {card.priceWithBreakfast} ₾ {t.withBreakfast}
+                        </div>
                       </div>
                       <Link
                         to={`/rooms/${card.id}`}
