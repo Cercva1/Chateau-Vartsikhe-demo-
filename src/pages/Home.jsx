@@ -1,112 +1,110 @@
-export const home = {
-  en: {
-    heroTagline: (
-      <>
-        Chateau Vartsikhe — a hotel and resort in Imereti,
-        <br />
-        15 minutes from Kutaisi.
-        <br />
-        120 hectares of vineyards, forest, cottages, pools and spa.
-      </>
-    ),
-    scroll: "scroll",
-    whereToStay: {
-      eyebrow: "Discover",
-      heading: "Discover Chateau Vartsikhe",
-      body: "",
-    },
-    tiles: [
-      {
-        title: "Book a Room",
-        body: "Family and double cottages and hotel rooms — among vineyards and forest.",
-        price: "",
-        link: "View rooms →",
-      },
-      {
-        title: "Activities",
-        body: "Horseback riding, fishing, padel, wine tastings and culinary masterclasses — diverse experiences in nature.",
-        price: "",
-        link: "Learn more →",
-      },
-      {
-        title: "Events & Meetings",
-        body: "Weddings in nature — unique spaces in the vineyards, forest and by the lake, for up to 350 guests.",
-        price: "",
-        link: "Learn more →",
-      },
-    ],
-    tileLinks: ["/rooms", "/about", "/events"],
-    grounds: {
-      eyebrow: "Ajameti Forest",
-      heading: "Surrounded by the Ajameti forest",
-      body: "Chateau Vartsikhe's cottages, nestled in the Ajameti forest, are designed for peaceful rest in nature. Spaces immersed in greenery and tranquility — far from the noise of the city.",
-      cta: "More about the estate",
-    },
-    restaurant: {
-      eyebrow: "Our kitchen",
-      heading: "Chateau Vartsikhe kitchen",
-      body: "Imeretian flavours, local produce and traditional recipes — dishes that reflect the character and hospitality of our region.",
-    },
-    readyWhenYouAre: {
-      eyebrow: "Ready when you are",
-      heading: "Check dates, see prices, and reserve in a few minutes.",
-      cta: "Start booking",
-    },
-  },
+import { Link } from "react-router-dom";
+import Reveal from "../components/Reveal";
+import HeroSlideshow from "../components/HeroSlideshow";
+import { useLanguage } from "../i18n/LanguageContext";
+import { home } from "../i18n/home";
 
-  ka: {
-    heroTagline: (
-      <>
-        შატო ვარციხე — სასტუმრო და დასასვენებელი კომპლექსი იმერეთში,
-        <br />
-        ქუთაისიდან 15 წუთის სავალზე.
-        <br />
-        120 ჰექტარზე გაშენებული ვენახები, ტყე, კოტეჯები, აუზები და სპა.
-      </>
-    ),
-    scroll: "ჩამოსქროლეთ",
-    whereToStay: {
-      eyebrow: "აღმოაჩინე",
-      heading: "აღმოაჩინე შატო ვარციხე",
-      body: "",
-    },
-    tiles: [
-      {
-        title: "დაჯავშნე ოთახი",
-        body: "საოჯახო და ორადგილიანი კოტეჯები და სასტუმრო ნომრები — ვენახებსა და ტყეში.",
-        price: "",
-        link: "ოთახები →",
-      },
-      {
-        title: "აქტივობები",
-        body: "ცხენით გასეირნება, თევზაობა, პადელი, ღვინის დეგუსტაციები და კულინარიული მასტერკლასები — მრავალფეროვანი გამოცდილებები ბუნებაში.",
-        price: "",
-        link: "გაიგე მეტი →",
-      },
-      {
-        title: "ღონისძიებები",
-        body: "ქორწილები ბუნებაში — გამორჩეული სივრცეები ვენახებში, ტყესა და ტბასთან, 350-მდე სტუმრისთვის.",
-        price: "",
-        link: "გაიგე მეტი →",
-      },
-    ],
-    tileLinks: ["/rooms", "/about", "/events"],
-    grounds: {
-      eyebrow: "აჯამეთის ტყეში",
-      heading: "აჯამეთის ტყით გარშემორტყმული",
-      body: "აჯამეთის ტყით გარშემორტყმული შატო ვარციხის კოტეჯები ბუნებაში მშვიდი დასვენებისთვისაა შექმნილი. ტყეში ჩაფლული სივრცეები, სიმწვანე და სიმყუდროვე — ქალაქის ხმაურისგან შორს.",
-      cta: "მეტი მამულის შესახებ",
-    },
-    restaurant: {
-      eyebrow: "ჩვენი სამზარეულო",
-      heading: "შატო ვარციხის სამზარეულო",
-      body: "იმერული გემოები, ადგილობრივი პროდუქტები და ტრადიციული რეცეპტები — კერძები, რომლებიც ჩვენი კუთხის ხასიათსა და სტუმართმოყვარეობას გადმოსცემს.",
-    },
-    readyWhenYouAre: {
-      eyebrow: "როცა მზად იქნებით",
-      heading:
-        "შეამოწმეთ თარიღები, იხილეთ ფასები და დაჯავშნეთ რამდენიმე წუთში.",
-      cta: "დაჯავშნის დაწყება",
-    },
-  },
-};
+const TILE_IMAGES = [
+  "/assets/rooms/stone-house-1.jpg",
+  "/assets/rooms/dome.jpg",
+  "/assets/rooms/otskhanuri-villa.jpg",
+];
+
+const ON_ESTATE_IMAGES = [
+  "/assets/pool-indoor-2.png",
+  "/assets/dining-hall.png",
+  "/assets/toast.png",
+];
+
+export default function Home() {
+  const { locale } = useLanguage();
+  const t = home[locale];
+
+  return (
+    <>
+      <HeroSlideshow taglineNode={t.heroTagline} scrollLabel={t.scroll} />
+
+      {/* Discover section — 3 tiles */}
+      <section id="after-hero">
+        <div className="wrap">
+          <Reveal className="section-head">
+            <span className="eyebrow">{t.whereToStay.eyebrow}</span>
+            <h2>{t.whereToStay.heading}</h2>
+          </Reveal>
+          <div className="grid-3">
+            {t.tiles.map((tile, i) => (
+              <Reveal className="tile" key={tile.title}>
+                <div
+                  className="img"
+                  style={{ backgroundImage: `url("${TILE_IMAGES[i]}")` }}
+                />
+                <div className="body">
+                  <h3>{tile.title}</h3>
+                  <p>{tile.body}</p>
+                  <Link to={t.tileLinks[i]} className="more">
+                    {tile.link}
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ajameti forest section */}
+      <section className="alt">
+        <div className="wrap">
+          <Reveal className="split">
+            <img
+              src="/assets/rooms/forest-cabin.jpg"
+              alt="Forest cabin at Chateau Vartsikhe"
+            />
+            <div>
+              <span className="eyebrow">{t.grounds.eyebrow}</span>
+              <h2>{t.grounds.heading}</h2>
+              <p>{t.grounds.body}</p>
+              <Link to="/about" className="btn btn-outline">
+                {t.grounds.cta}
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Restaurant section */}
+      <section>
+        <div className="wrap">
+          <Reveal className="split reverse">
+            <img src="/assets/toast.png" alt="Chateau Vartsikhe dining" />
+            <div>
+              <span className="eyebrow">{t.restaurant.eyebrow}</span>
+              <h2>{t.restaurant.heading}</h2>
+              <p>{t.restaurant.body}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="alt">
+        <div className="wrap" style={{ textAlign: "center" }}>
+          <Reveal>
+            <span className="eyebrow">{t.readyWhenYouAre.eyebrow}</span>
+            <h2
+              style={{
+                fontStyle: "italic",
+                fontSize: "clamp(1.8rem, 3.6vw, 2.6rem)",
+                margin: "14px 0 26px",
+              }}
+            >
+              {t.readyWhenYouAre.heading}
+            </h2>
+            <Link to="/rooms" className="btn btn-primary">
+              {t.readyWhenYouAre.cta}
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}
