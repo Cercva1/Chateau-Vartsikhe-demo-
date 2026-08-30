@@ -6,7 +6,6 @@ import { contactPage } from "../i18n/contact";
 export default function Contact() {
   const { locale } = useLanguage();
   const t = contactPage[locale];
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -22,7 +21,7 @@ export default function Contact() {
       <section
         className="hero small"
         style={{
-          backgroundImage: 'url("/assets/grove.png")',
+          backgroundImage: 'url("/assets/rooms/forest-chalet.jpg")',
           minHeight: "32vh",
         }}
       >
@@ -61,6 +60,32 @@ export default function Contact() {
               <div className="item">
                 <span className="eyebrow">{t.info.hoursLabel}</span>
                 <p>{t.info.hoursValue}</p>
+              </div>
+              <div className="item">
+                <span className="eyebrow">{t.info.eventsLabel}</span>
+                <p>
+                  <a href="tel:+995595556010">{t.info.eventsPhone}</a>
+                  <br />
+                  <a href="mailto:events@chateauvartsikhe.ge">
+                    {t.info.eventsEmail}
+                  </a>
+                </p>
+              </div>
+              <div className="item">
+                <span className="eyebrow">{t.info.taxiLabel}</span>
+                <p>{t.info.taxiValue}</p>
+              </div>
+              <div className="item">
+                <span className="eyebrow">{t.info.transferLabel}</span>
+                <p>{t.info.transferValue}</p>
+              </div>
+              <div className="item">
+                <span className="eyebrow">{t.info.nearbyLabel}</span>
+                <ul style={{ paddingLeft: 18, lineHeight: 1.8 }}>
+                  {t.info.nearby.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
 

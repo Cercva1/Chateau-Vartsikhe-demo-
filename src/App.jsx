@@ -6,6 +6,8 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import RoomDetail from "./pages/RoomDetail";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
 import Policies from "./pages/Policies";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:roomId" element={<RoomDetail />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

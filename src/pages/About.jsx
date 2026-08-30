@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -6,13 +7,14 @@ import { aboutPage } from "../i18n/about";
 export default function About() {
   const { locale } = useLanguage();
   const t = aboutPage[locale];
+  const [historyOpen, setHistoryOpen] = useState(false);
 
   return (
     <>
       <section
         className="hero small"
         style={{
-          backgroundImage: 'url("/assets/toast.png")',
+          backgroundImage: 'url("/assets/rooms/otskhanuri-villa.jpg")',
           minHeight: "36vh",
         }}
       >
@@ -22,35 +24,72 @@ export default function About() {
         </div>
       </section>
 
+      {/* History — expand/collapse */}
       <section>
+        <div className="wrap" style={{ maxWidth: 820 }}>
+          <Reveal>
+            <span className="eyebrow">{t.history.eyebrow}</span>
+            <h2 style={{ margin: "12px 0 18px" }}>{t.history.heading}</h2>
+            <p>{t.history.shortText}</p>
+            {historyOpen && (
+              <div style={{ marginTop: 16 }}>
+                {t.history.fullText.split("\n\n").map((para, i) => (
+                  <p key={i} style={{ marginBottom: 14 }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setHistoryOpen((v) => !v)}
+              style={{
+                marginTop: 16,
+                background: "none",
+                border: "none",
+                color: "var(--forest-deep)",
+                fontWeight: 600,
+                cursor: "pointer",
+                padding: 0,
+                fontSize: "0.95rem",
+                textDecoration: "underline",
+              }}
+            >
+              {historyOpen ? t.history.readLess : t.history.readMore}
+            </button>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Where we are */}
+      <section className="alt">
         <div className="wrap">
           <Reveal className="split">
-            <img
-              src="/assets/rooms/otskhanuri-villa.jpg"
-              alt={t.where.imgAlt}
-            />
+            <img src="/assets/rooms/vineyard-house.jpg" alt={t.where.imgAlt} />
             <div>
               <span className="eyebrow">{t.where.eyebrow}</span>
               <h2>{t.where.heading}</h2>
               <p>{t.where.body1}</p>
-              <p>{t.where.body2}</p>
+              <p style={{ marginTop: 12 }}>{t.where.body2}</p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="alt">
+      {/* Grounds */}
+      <section>
         <div className="wrap">
           <Reveal className="split reverse">
-            <img
-              src="/assets/rooms/vineyard-house.jpg"
-              alt={t.grounds.imgAlt}
-            />
+            <img src="/assets/rooms/lake-house.jpg" alt={t.grounds.imgAlt} />
             <div>
               <span className="eyebrow">{t.grounds.eyebrow}</span>
               <h2>{t.grounds.heading}</h2>
               <p>{t.grounds.body}</p>
-              <Link to="/rooms" className="btn btn-outline">
+              <Link
+                to="/rooms"
+                className="btn btn-outline"
+                style={{ marginTop: 24, display: "inline-block" }}
+              >
                 {t.grounds.cta}
               </Link>
             </div>
@@ -58,14 +97,13 @@ export default function About() {
         </div>
       </section>
 
-      <section>
+      {/* Activities */}
+      <section className="alt">
         <div className="wrap" style={{ maxWidth: 900 }}>
           <Reveal className="section-head">
             <span className="eyebrow">{t.experiences.eyebrow}</span>
             <h2>{t.experiences.heading}</h2>
-            <p>{t.experiences.intro}</p>
           </Reveal>
-
           <Reveal>
             <h3 style={{ fontSize: "1.1rem", margin: "8px 0 14px" }}>
               {t.experiences.facilitiesHeading}
@@ -75,7 +113,6 @@ export default function About() {
                 <span key={f}>{f}</span>
               ))}
             </div>
-
             <h3 style={{ fontSize: "1.1rem", margin: "8px 0 14px" }}>
               {t.experiences.activitiesHeading}
             </h3>
@@ -106,7 +143,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="alt">
+      {/* Evenings */}
+      <section>
         <div className="wrap">
           <Reveal className="split">
             <img src="/assets/toast.png" alt={t.evenings.imgAlt} />
@@ -119,7 +157,8 @@ export default function About() {
         </div>
       </section>
 
-      <section>
+      {/* Legal */}
+      <section className="alt">
         <div className="wrap">
           <Reveal className="section-head">
             <span className="eyebrow">{t.legal.eyebrow}</span>

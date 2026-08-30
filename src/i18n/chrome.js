@@ -3,6 +3,8 @@ export const chrome = {
     nav: {
       home: "Home",
       rooms: "Rooms",
+      events: "Events & Meetings",
+      gallery: "Gallery",
       policies: "Policies",
       about: "About",
       contact: "Contact",
@@ -10,12 +12,12 @@ export const chrome = {
     bookNow: "Book now",
     footer: {
       tagline:
-        "A forest estate in Imereti, 15 minutes from Kutaisi — cottages, a stable house, and cabins by the lake.",
+        "A hotel and resort in Imereti, 15 minutes from Kutaisi — vineyards, forest, cottages, pools and spa across 120 hectares.",
       exploreHeading: "Explore",
       contactHeading: "Contact",
       bookingHeading: "Booking",
       getInTouch: "Get in touch",
-      bookingNote: "Payments via Bank of Georgia / TBC secure checkout.",
+      bookingNote: "Payments via Bank of Georgia secure checkout.",
       currencies: "GEL · USD · EUR",
       registration: "Chateau Vartsikhe · registration no. on file",
       copyright: "© 2026 Chateau Vartsikhe",
@@ -25,6 +27,8 @@ export const chrome = {
     nav: {
       home: "მთავარი",
       rooms: "ოთახები",
+      events: "ღონისძიებები",
+      gallery: "გალერეა",
       policies: "წესები",
       about: "ჩვენ შესახებ",
       contact: "კონტაქტი",
@@ -32,12 +36,12 @@ export const chrome = {
     bookNow: "დაჯავშნა",
     footer: {
       tagline:
-        "სატყეო მამული იმერეთში, 15 წუთის სავალზე ქუთაისიდან — კოტეჯები, საჯინიბოს სახლი და კაბინები ტბასთან.",
+        "სასტუმრო და დასასვენებელი კომპლექსი იმერეთში, ქუთაისიდან 15 წუთის სავალზე — ვენახები, ტყე, კოტეჯები, აუზები და სპა 120 ჰექტარზე.",
       exploreHeading: "გვერდები",
       contactHeading: "კონტაქტი",
       bookingHeading: "დაჯავშნა",
       getInTouch: "დაგვიკავშირდით",
-      bookingNote: "გადახდა საქართველოს ბანკის / TBC უსაფრთხო სისტემით.",
+      bookingNote: "გადახდა საქართველოს ბანკის უსაფრთხო სისტემით.",
       currencies: "GEL · USD · EUR",
       registration: "შატო ვარწიხე · რეგისტრაციის ნომერი მოთხოვნისას",
       copyright: "© 2026 შატო ვარწიხე",
