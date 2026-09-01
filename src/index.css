@@ -217,6 +217,8 @@ header.site.at-top .menu-toggle span {
   font-size: 1.5rem;
   color: var(--forest-deep);
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo span {
   color: var(--terracotta);
@@ -226,7 +228,7 @@ header.site.at-top .menu-toggle span {
 nav.main {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: clamp(16px, 2.2vw, 34px);
 }
 nav.main a {
   font-size: 13px;
@@ -235,6 +237,7 @@ nav.main a {
   color: var(--ink-soft);
   position: relative;
   padding: 4px 0;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 nav.main a:hover,
@@ -255,6 +258,8 @@ nav.main a.active::after {
   display: flex;
   align-items: center;
   gap: 22px;
+  margin-left: clamp(16px, 3vw, 48px);
+  flex-shrink: 0;
 }
 
 .locale {
