@@ -30,7 +30,7 @@ export const chrome = {
       events: "ღონისძიებები",
       gallery: "გალერეა",
       policies: "წესები",
-      about: "შესახებ",
+      about: "ჩვენ შესახებ",
       contact: "კონტაქტი",
     },
     bookNow: "დაჯავშნა",
