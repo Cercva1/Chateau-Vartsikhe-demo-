@@ -1,19 +1,37 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 import HeroSlideshow from "../components/HeroSlideshow";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../i18n/LanguageContext";
 import { home } from "../i18n/home";
 
-const TILE_IMAGES = [
-  "/assets/rooms/stone-house-1.jpg",
-  "/assets/rooms/dome.jpg",
-  "/assets/rooms/otskhanuri-villa.jpg",
+// One slideshow per "Discover" tile — Book a Room / Activities / Events & Meetings.
+const TILE_SLIDES = [
+  [
+    "/assets/bedroom-suite.png",
+    "/assets/rooms/lux.jpg",
+    "/assets/rooms/otskhanuri-villa.jpg",
+    "/assets/bathroom.png",
+  ],
+  [
+    "/assets/photos/activities/aerial-padel-court.jpg",
+    "/assets/photos/activities/horse-riding.jpg",
+    "/assets/photos/activities/padel-court-detail.jpg",
+  ],
+  [
+    "/assets/photos/events/wedding-arch-couple.jpg",
+    "/assets/photos/events/banquet-hall-2.jpg",
+    "/assets/photos/events/wedding-guests.jpg",
+    "/assets/photos/events/aerial-wedding-marquee.jpg",
+  ],
 ];
 
-const ON_ESTATE_IMAGES = [
-  "/assets/pool-indoor-2.png",
-  "/assets/dining-hall.png",
-  "/assets/toast.png",
+const KITCHEN_IMAGES = [
+  "/assets/photos/dining/veranda-dining-bright.jpg",
+  "/assets/photos/dining/veranda-dining-1.jpg",
+  "/assets/photos/dining/veranda-dining-2.jpg",
+  "/assets/photos/dining/veranda-dining-group.jpg",
+  "/assets/photos/dining/veranda-dining-golden-hour.jpg",
 ];
 
 export default function Home() {
@@ -34,10 +52,7 @@ export default function Home() {
           <div className="grid-3">
             {t.tiles.map((tile, i) => (
               <Reveal className="tile" key={tile.title}>
-                <div
-                  className="img"
-                  style={{ backgroundImage: `url("${TILE_IMAGES[i]}")` }}
-                />
+                <Slideshow images={TILE_SLIDES[i]} className="img" />
                 <div className="body">
                   <h3>{tile.title}</h3>
                   <p>{tile.body}</p>
@@ -75,7 +90,7 @@ export default function Home() {
       <section>
         <div className="wrap">
           <Reveal className="split reverse">
-            <img src="/assets/toast.png" alt="Chateau Vartsikhe dining" />
+            <Slideshow images={KITCHEN_IMAGES} className="split-media" />
             <div>
               <span className="eyebrow">{t.restaurant.eyebrow}</span>
               <h2>{t.restaurant.heading}</h2>

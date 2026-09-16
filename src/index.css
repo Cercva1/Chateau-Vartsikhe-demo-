@@ -425,6 +425,31 @@ nav.main a.active::after {
   z-index: 2;
 }
 
+/* ---------- generic fading slideshow (reusable anywhere) ---------- */
+.slideshow {
+  position: relative;
+  overflow: hidden;
+}
+.hero .slideshow {
+  position: absolute;
+  inset: 0;
+}
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.slideshow .slide.active {
+  opacity: 1;
+}
+.split-media {
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+}
+
 .hero-inner {
   position: absolute;
   inset: 0;

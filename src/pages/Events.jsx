@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const HERO_IMAGES = [
+  "/assets/photos/events/banquet-hall-2.jpg",
+  "/assets/photos/events/aerial-wedding-marquee.jpg",
+  "/assets/photos/events/vineyard-picnic.jpg",
+  "/assets/photos/events/wedding-musicians.jpg",
+];
 
 const content = {
   en: {
@@ -15,25 +23,26 @@ const content = {
         title: "Vineyard Terrace",
         body: "An open-air terrace right among the vines — a backdrop of rolling greenery and the Ajameti forest beyond. Perfect for wedding ceremonies and receptions, wine dinners, and evening celebrations.",
         capacity: "Up to 350 guests",
-        img: "/assets/rooms/otskhanuri-villa.jpg",
+        img: "/assets/photos/estate/aerial-terrace-dining-2.jpg",
+        imgPosition: "center 85%",
       },
       {
         title: "Forest Clearing",
         body: "A clearing among the old Ajameti trees — filtered light by day, warm lamplight by night. Ideal for private ceremonies, cocktail receptions, or forest wellness events.",
         capacity: "Up to 150 guests",
-        img: "/assets/rooms/forest-chalet.jpg",
+        img: "/assets/photos/events/wedding-ceremony-aisle.jpg",
       },
       {
         title: "Lakeside Lawn",
         body: "Open grass stretching to the estate's private lake — sunsets reflect off the water as your evening unfolds. Popular for wedding toasts, live music evenings and private dinners.",
         capacity: "Up to 250 guests",
-        img: "/assets/rooms/lake-house.jpg",
+        img: "/assets/photos/events/vineyard-picnic.jpg",
       },
       {
         title: "Conference Room",
         body: "A modern, air-conditioned conference room for business meetings, corporate retreats and seminars — equipped with AV, projector and high-speed Wi-Fi.",
         capacity: "Up to 40 people",
-        img: "/assets/rooms/lux.jpg",
+        img: "/assets/photos/events/banquet-hall-1.jpg",
       },
     ],
     services: {
@@ -71,25 +80,26 @@ const content = {
         title: "ვენახის ტერასა",
         body: "ღია ტერასა პირდაპირ ვენახებს შორის — ფონზე მოჩანს მწვანე ბორცვები და აჯამეთის ტყე. შესანიშნავია ქორწილის ცერემონიებისა და ვახშმებისთვის.",
         capacity: "350-მდე სტუმარი",
-        img: "/assets/rooms/otskhanuri-villa.jpg",
+        img: "/assets/photos/estate/aerial-terrace-dining-2.jpg",
+        imgPosition: "center 85%",
       },
       {
         title: "ტყის მინდვრი",
         body: "გამოწმენდილი სივრცე ძველი აჯამეთის ხეებს შორის — ფილტრირებული სინათლე დღით, თბილი ლამპის შუქი ღამით. იდეალურია ინტიმური ცერემონიებისთვის.",
         capacity: "150-მდე სტუმარი",
-        img: "/assets/rooms/forest-chalet.jpg",
+        img: "/assets/photos/events/wedding-ceremony-aisle.jpg",
       },
       {
         title: "ტბასთან მდებარე გაზონი",
         body: "ღია გაზონი, რომელიც კომპლექსის კერძო ტბამდე გადის — მზის ჩასვლა წყლის ზედაპირზე ირეკლება. პოპულარულია ქორწილის ტოსტების, ცოცხალი მუსიკისა და კერძო ვახშმებისთვის.",
         capacity: "250-მდე სტუმარი",
-        img: "/assets/rooms/lake-house.jpg",
+        img: "/assets/photos/events/vineyard-picnic.jpg",
       },
       {
         title: "საკონფერენციო დარბაზი",
         body: "თანამედროვე, გაკონდიცირებული საკონფერენციო დარბაზი ბიზნეს შეხვედრებისთვის — სრული AV, პროექტორი და სწრაფი Wi-Fi.",
         capacity: "40-მდე ადამიანი",
-        img: "/assets/rooms/lux.jpg",
+        img: "/assets/photos/events/banquet-hall-1.jpg",
       },
     ],
     services: {
@@ -123,13 +133,8 @@ export default function Events() {
 
   return (
     <>
-      <section
-        className="hero small"
-        style={{
-          backgroundImage: 'url("/assets/rooms/otskhanuri-villa.jpg")',
-          minHeight: "40vh",
-        }}
-      >
+      <section className="hero small" style={{ minHeight: "60vh" }}>
+        <Slideshow images={HERO_IMAGES} />
         <div className="wrap">
           <span className="eyebrow">{t.hero.eyebrow}</span>
           <h1>{t.hero.heading}</h1>
@@ -173,7 +178,10 @@ export default function Events() {
               >
                 <div
                   className="img"
-                  style={{ backgroundImage: `url("${venue.img}")` }}
+                  style={{
+                    backgroundImage: `url("${venue.img}")`,
+                    backgroundPosition: venue.imgPosition,
+                  }}
                 />
                 <div className="body">
                   <h3>{venue.title}</h3>

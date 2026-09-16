@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 const SLIDES = [
-  "/assets/pool-outdoor.png",
-  "/assets/cottages.png",
-  "/assets/pool-indoor-1.png",
-  "/assets/stable.png",
-  "/assets/grove.png",
+  "/assets/photos/pool/aerial-outdoor-pool-2.jpg",
+  "/assets/photos/estate/stone-cottage-exterior.jpg",
+  "/assets/photos/pool/indoor-pool-conservatory.jpg",
+  "/assets/photos/activities/horse-riding.jpg",
+  "/assets/photos/estate/aerial-grove-building.jpg",
+  "/assets/photos/estate/aerial-estate-overview.jpg",
 ];
 
 export default function HeroSlideshow({ taglineNode, scrollLabel = "scroll" }) {

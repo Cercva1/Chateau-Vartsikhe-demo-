@@ -1,8 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../i18n/LanguageContext";
 import { aboutPage } from "../i18n/about";
+
+const ESTATE_VIEW_IMAGES = [
+  "/assets/photos/estate/aerial-estate-overview.jpg",
+  "/assets/photos/estate/aerial-vineyard-house.jpg",
+  "/assets/photos/estate/aerial-grove-building.jpg",
+  "/assets/photos/estate/aerial-veranda-building.jpg",
+];
 
 export default function About() {
   const { locale } = useLanguage();
@@ -65,7 +73,7 @@ export default function About() {
       <section className="alt">
         <div className="wrap">
           <Reveal className="split">
-            <img src="/assets/rooms/vineyard-house.jpg" alt={t.where.imgAlt} />
+            <Slideshow images={ESTATE_VIEW_IMAGES} className="split-media" />
             <div>
               <span className="eyebrow">{t.where.eyebrow}</span>
               <h2>{t.where.heading}</h2>
@@ -80,7 +88,10 @@ export default function About() {
       <section>
         <div className="wrap">
           <Reveal className="split reverse">
-            <img src="/assets/rooms/lake-house.jpg" alt={t.grounds.imgAlt} />
+            <img
+              src="/assets/photos/estate/barn-sunset.jpg"
+              alt={t.grounds.imgAlt}
+            />
             <div>
               <span className="eyebrow">{t.grounds.eyebrow}</span>
               <h2>{t.grounds.heading}</h2>
@@ -147,7 +158,10 @@ export default function About() {
       <section>
         <div className="wrap">
           <Reveal className="split">
-            <img src="/assets/toast.png" alt={t.evenings.imgAlt} />
+            <img
+              src="/assets/photos/dining/veranda-dining-golden-hour.jpg"
+              alt={t.evenings.imgAlt}
+            />
             <div>
               <span className="eyebrow">{t.evenings.eyebrow}</span>
               <h2>{t.evenings.heading}</h2>

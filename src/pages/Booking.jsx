@@ -45,7 +45,7 @@ export default function Booking() {
       <section
         className="hero small"
         style={{
-          backgroundImage: 'url("/assets/pool-indoor-1.png")',
+          backgroundImage: 'url("/assets/photos/pool/indoor-pool-conservatory.jpg")',
           minHeight: "34vh",
         }}
       >

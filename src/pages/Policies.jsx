@@ -12,7 +12,7 @@ export default function Policies() {
       <section
         className="hero small"
         style={{
-          backgroundImage: 'url("/assets/stable.png")',
+          backgroundImage: 'url("/assets/photos/activities/horse-riding.jpg")',
           minHeight: "34vh",
         }}
       >
