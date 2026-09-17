@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import RoomDetail from "./pages/RoomDetail";
 import Events from "./pages/Events";
+import Activities from "./pages/Activities";
 import Gallery from "./pages/Gallery";
 import Policies from "./pages/Policies";
 import About from "./pages/About";
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:roomId" element={<RoomDetail />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/activities" element={<Activities />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/about" element={<About />} />

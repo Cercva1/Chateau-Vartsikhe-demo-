@@ -37,7 +37,10 @@ export default function Rooms() {
                 >
                   <div
                     className="img"
-                    style={{ backgroundImage: `url("${card.img}")` }}
+                    style={{
+                      backgroundImage: `url("${card.img}")`,
+                      backgroundPosition: card.imgPosition,
+                    }}
                   />
                   <div className="body">
                     <span className="eyebrow">{copy.eyebrow}</span>

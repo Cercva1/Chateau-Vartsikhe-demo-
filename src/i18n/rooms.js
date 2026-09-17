@@ -223,6 +223,7 @@ export const roomsPage = {
         body: "A standard hotel-style room for two, closest to the main house. Four identical rooms available.",
         facts: ["Sleeps 2", "Hotel room", "King bed", "4 units available"],
         priceNote: "/ night",
+        miniLabel: "Bathroom with a view",
         amenities: [
           "Bedding: mattress, pillows, duvet, linens and bed cover",
           "Furniture: desk, chair, nightstand, mirror",
@@ -520,6 +521,7 @@ export const roomsPage = {
           "4 ერთეული",
         ],
         priceNote: "/ ღამეში",
+        miniLabel: "სააბაზანო ხედით",
         amenities: [
           "საწოლი – ლეიბი, ბალიშები, საბანი, თეთრეული და საწოლის გადასაფარებელი",
           "ავეჯი – სამუშაო მაგიდა, სკამი, საწოლის ტუმბო, სარკე",

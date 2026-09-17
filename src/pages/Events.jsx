@@ -12,7 +12,7 @@ const HERO_IMAGES = [
 
 const content = {
   en: {
-    hero: { eyebrow: "Events & Meetings", heading: "Celebrate here" },
+    hero: { eyebrow: "Events & Meetings", heading: "Celebrate With Us" },
     intro: {
       eyebrow: "Unique venues",
       heading: "From intimate gatherings to 350-guest celebrations",
@@ -20,29 +20,34 @@ const content = {
     },
     venues: [
       {
+        title: "Theater",
+        body: "Chateau Vartsikhe Theater is a distinctive wedding venue surrounded by nature. Set among open fields and overlooking the lake, its glass structure brings the landscape into the space, creating a bright, open and memorable setting for your celebration. The Theater is ideal for both intimate and large-scale weddings, accommodating up to 400 guests.",
+        capacity: "Up to 400 guests",
+        img: "/assets/photos/events/theater-hall.jpg",
+      },
+      {
+        title: "Theater Field",
+        body: "The Theater Field is a spacious open-air venue surrounded by nature and located beside the lake. Ideal for wedding ceremonies, welcome receptions, large wedding dinners and outdoor celebrations, the space also features a dedicated stage for live music and performances.",
+        capacity: "",
+        img: "/assets/photos/events/theater-field.jpg",
+      },
+      {
+        title: "Forest Venue",
+        body: "The Forest Venue is an intimate wedding setting in the heart of the forest, set on a bright open lawn surrounded by trees and wild nature. Ideal for celebrations, ceremonies and wedding dinners of up to 90 guests, with a covered alternative available in case of rain.",
+        capacity: "Up to 90 guests",
+        img: "/assets/photos/events/forest-venue.jpg",
+      },
+      {
+        title: "Forest Multifunctional Venue",
+        body: "The Forest Multifunctional Venue is a beautiful and versatile space surrounded by trees in the heart of the forest. Ideal for intimate weddings, private events, conferences and business meetings, the venue can be adapted for both celebrations and corporate gatherings.",
+        capacity: "",
+        img: "/assets/photos/events/multifunctional-venue.jpg",
+      },
+      {
         title: "Vineyard Terrace",
         body: "An open-air terrace right among the vines — a backdrop of rolling greenery and the Ajameti forest beyond. Perfect for wedding ceremonies and receptions, wine dinners, and evening celebrations.",
-        capacity: "Up to 350 guests",
-        img: "/assets/photos/estate/aerial-terrace-dining-2.jpg",
-        imgPosition: "center 85%",
-      },
-      {
-        title: "Forest Clearing",
-        body: "A clearing among the old Ajameti trees — filtered light by day, warm lamplight by night. Ideal for private ceremonies, cocktail receptions, or forest wellness events.",
-        capacity: "Up to 150 guests",
-        img: "/assets/photos/events/wedding-ceremony-aisle.jpg",
-      },
-      {
-        title: "Lakeside Lawn",
-        body: "Open grass stretching to the estate's private lake — sunsets reflect off the water as your evening unfolds. Popular for wedding toasts, live music evenings and private dinners.",
-        capacity: "Up to 250 guests",
-        img: "/assets/photos/events/vineyard-picnic.jpg",
-      },
-      {
-        title: "Conference Room",
-        body: "A modern, air-conditioned conference room for business meetings, corporate retreats and seminars — equipped with AV, projector and high-speed Wi-Fi.",
-        capacity: "Up to 40 people",
-        img: "/assets/photos/events/banquet-hall-1.jpg",
+        capacity: "Up to 100 guests",
+        img: "/assets/photos/estate/aerial-terrace-dining-3.jpg",
       },
     ],
     services: {
@@ -77,29 +82,34 @@ const content = {
     },
     venues: [
       {
+        title: "თეატრი",
+        body: "შატო ვარციხის თეატრი — გამორჩეული საქორწილო სივრცე ბუნების შუაგულში. სივრცე გარშემორტყმულია მინდვრებითა და ტბით, ხოლო შუშის კონსტრუქცია ბუნებას ინტერიერის ნაწილად აქცევს და ქმნის ღია, ნათელ და განსაკუთრებულ გარემოს. თეატრი იდეალურია როგორც მცირე, ისე მასშტაბური ქორწილებისთვის და იტევს მაქსიმუმ 400 სტუმარს.",
+        capacity: "მაქსიმუმ 400 სტუმარი",
+        img: "/assets/photos/events/theater-hall.jpg",
+      },
+      {
+        title: "თეატრის მინდორი",
+        body: "თეატრის მინდორი — ფართო, ღია სივრცე ბუნების შუაგულში, ტბასთან ახლოს. იდეალურია საქორწილო ცერემონიებისთვის, Welcome მიღებისთვის, დიდი საქორწილო სუფრებისა და მასშტაბური ღია ცის ქვეშ ქორწილებისთვის. სივრცეს აქვს გამოყოფილი სცენა ცოცხალი მუსიკისა და სხვადასხვა წარმოდგენისთვის.",
+        capacity: "",
+        img: "/assets/photos/events/theater-field.jpg",
+      },
+      {
+        title: "ტყის დარბაზი",
+        body: "ტყის დარბაზი — მყუდრო საქორწილო სივრცე ტყის შუაგულში, ხეებითა და ველური ბუნებით გარშემორტყმულ ნათელ მინდორზე. იდეალურია 90 სტუმრამდე ქორწილებისთვის, ცერემონიებისა და საქორწილო სუფრებისთვის.",
+        capacity: "90-მდე სტუმარი",
+        img: "/assets/photos/events/forest-venue.jpg",
+      },
+      {
+        title: "ტყის მულტიფუნქციური სივრცე",
+        body: "ტყის მულტიფუნქციური სივრცე — ბუნებითა და ხეებით გარშემორტყმული სივრცე ტყის შუაგულში. იდეალურია მცირე ქორწილებისთვის, კერძო ღონისძიებებისთვის, კონფერენციებისა და საქმიანი შეხვედრებისთვის. სივრცის მოქნილი ფორმატი საშუალებას იძლევა მოეწყოს როგორც სადღესასწაულო, ისე ოფიციალური ღონისძიებები.",
+        capacity: "",
+        img: "/assets/photos/events/multifunctional-venue.jpg",
+      },
+      {
         title: "ვენახის ტერასა",
         body: "ღია ტერასა პირდაპირ ვენახებს შორის — ფონზე მოჩანს მწვანე ბორცვები და აჯამეთის ტყე. შესანიშნავია ქორწილის ცერემონიებისა და ვახშმებისთვის.",
-        capacity: "350-მდე სტუმარი",
-        img: "/assets/photos/estate/aerial-terrace-dining-2.jpg",
-        imgPosition: "center 85%",
-      },
-      {
-        title: "ტყის მინდვრი",
-        body: "გამოწმენდილი სივრცე ძველი აჯამეთის ხეებს შორის — ფილტრირებული სინათლე დღით, თბილი ლამპის შუქი ღამით. იდეალურია ინტიმური ცერემონიებისთვის.",
-        capacity: "150-მდე სტუმარი",
-        img: "/assets/photos/events/wedding-ceremony-aisle.jpg",
-      },
-      {
-        title: "ტბასთან მდებარე გაზონი",
-        body: "ღია გაზონი, რომელიც კომპლექსის კერძო ტბამდე გადის — მზის ჩასვლა წყლის ზედაპირზე ირეკლება. პოპულარულია ქორწილის ტოსტების, ცოცხალი მუსიკისა და კერძო ვახშმებისთვის.",
-        capacity: "250-მდე სტუმარი",
-        img: "/assets/photos/events/vineyard-picnic.jpg",
-      },
-      {
-        title: "საკონფერენციო დარბაზი",
-        body: "თანამედროვე, გაკონდიცირებული საკონფერენციო დარბაზი ბიზნეს შეხვედრებისთვის — სრული AV, პროექტორი და სწრაფი Wi-Fi.",
-        capacity: "40-მდე ადამიანი",
-        img: "/assets/photos/events/banquet-hall-1.jpg",
+        capacity: "100-მდე სტუმარი",
+        img: "/assets/photos/estate/aerial-terrace-dining-3.jpg",
       },
     ],
     services: {
@@ -186,9 +196,11 @@ export default function Events() {
                 <div className="body">
                   <h3>{venue.title}</h3>
                   <p>{venue.body}</p>
-                  <div className="facts">
-                    <span>{venue.capacity}</span>
-                  </div>
+                  {venue.capacity && (
+                    <div className="facts">
+                      <span>{venue.capacity}</span>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}

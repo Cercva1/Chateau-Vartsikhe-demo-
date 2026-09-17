@@ -19,6 +19,7 @@ export default function Footer() {
           <div className="col">
             <h4>{t.footer.exploreHeading}</h4>
             <Link to="/rooms">{t.nav.rooms}</Link>
+            <Link to="/activities">{t.nav.activities}</Link>
             <Link to="/events">{t.nav.events}</Link>
             <Link to="/gallery">{t.nav.gallery}</Link>
             <Link to="/about">{t.nav.about}</Link>

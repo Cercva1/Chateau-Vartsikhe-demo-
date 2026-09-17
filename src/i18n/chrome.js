@@ -3,6 +3,7 @@ export const chrome = {
     nav: {
       home: "Home",
       rooms: "Rooms",
+      activities: "Activities",
       events: "Events & Meetings",
       gallery: "Gallery",
       policies: "Policies",
@@ -27,6 +28,7 @@ export const chrome = {
     nav: {
       home: "მთავარი",
       rooms: "ოთახები",
+      activities: "აქტივობები",
       events: "ღონისძიებები",
       gallery: "გალერეა",
       policies: "წესები",

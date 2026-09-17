@@ -49,6 +49,11 @@ const ALL_PHOTOS = [
   },
   { src: "/assets/rooms/dome.jpg", category: "nature", alt: "Glamping Dome" },
   { src: "/assets/rooms/lux.jpg", category: "rooms", alt: "Lux Room" },
+  {
+    src: "/assets/rooms/lux-bath.jpg",
+    category: "rooms",
+    alt: "Lux Room bathroom",
+  },
 
   // Estate, pools & grounds (from the September 2026 photo shoot)
   {
@@ -122,6 +127,11 @@ const ALL_PHOTOS = [
     alt: "Garden cottage exterior",
   },
   {
+    src: "/assets/photos/estate/vineyard-porch.jpg",
+    category: "estate",
+    alt: "Porch overlooking the vineyard",
+  },
+  {
     src: "/assets/photos/estate/barn-sunset.jpg",
     category: "estate",
     alt: "The estate at sunset",
@@ -183,6 +193,16 @@ const ALL_PHOTOS = [
     category: "nature",
     alt: "Gathering in the forest",
   },
+  {
+    src: "/assets/photos/nature/forest-boardwalk-cabin.jpg",
+    category: "nature",
+    alt: "Boardwalk through the forest to a cabin",
+  },
+  {
+    src: "/assets/photos/nature/forest-window-view.jpg",
+    category: "nature",
+    alt: "Forest view from a cabin window",
+  },
 
   // Dining
   {
@@ -210,12 +230,62 @@ const ALL_PHOTOS = [
     category: "dining",
     alt: "Guests dining on the veranda",
   },
+  {
+    src: "/assets/photos/dining/dessert-plate.jpg",
+    category: "dining",
+    alt: "Dessert plate with strawberries and meringue",
+  },
+  {
+    src: "/assets/photos/dining/fireplace-decor.jpg",
+    category: "dining",
+    alt: "Restaurant fireplace decor",
+  },
+  {
+    src: "/assets/photos/dining/cabbage-dish.jpg",
+    category: "dining",
+    alt: "Plated dish with greens in broth",
+  },
+  {
+    src: "/assets/photos/dining/tasting-plate.jpg",
+    category: "dining",
+    alt: "Tasting plate with pomegranate and eggplant",
+  },
+  {
+    src: "/assets/photos/dining/carbonara.jpg",
+    category: "dining",
+    alt: "Pasta with cured meat and parmesan",
+  },
+  {
+    src: "/assets/photos/dining/evening-dinner-lamps.jpg",
+    category: "dining",
+    alt: "Evening dinner under patterned lamps",
+  },
+  {
+    src: "/assets/photos/dining/terrace-lunch-hats.jpg",
+    category: "dining",
+    alt: "Guests at a sunlit terrace lunch",
+  },
 
   // Wellness & spa
   {
     src: "/assets/photos/wellness/spa-relaxation.jpg",
     category: "wellness",
     alt: "Spa and wellness at Chateau Vartsikhe",
+  },
+  {
+    src: "/assets/photos/wellness/poolside-games.jpg",
+    category: "wellness",
+    alt: "Chess and drinks poolside",
+  },
+  {
+    src: "/assets/photos/wellness/sauna-stones.jpg",
+    category: "wellness",
+    alt: "Sauna heater with stones",
+  },
+  {
+    src: "/assets/photos/wellness/sauna-bucket.jpg",
+    category: "wellness",
+    alt: "Sauna bucket and ladle",
   },
   {
     src: "/assets/photos/pool/indoor-pool-conservatory.jpg",
@@ -243,6 +313,16 @@ const ALL_PHOTOS = [
     src: "/assets/photos/activities/padel-court-detail.jpg",
     category: "activities",
     alt: "Padel court",
+  },
+  {
+    src: "/assets/photos/activities/lake-rowboat.jpg",
+    category: "activities",
+    alt: "Rowing on the lake at sunset",
+  },
+  {
+    src: "/assets/photos/activities/lake-dock-sunset.jpg",
+    category: "activities",
+    alt: "Watching the sunset from the lake dock",
   },
 
   // Events & weddings
@@ -331,6 +411,76 @@ const ALL_PHOTOS = [
     category: "events",
     alt: "Picnic among the vines",
   },
+  {
+    src: "/assets/photos/events/vineyard-picnic-golden.jpg",
+    category: "events",
+    alt: "Golden-hour dinner among the vines",
+  },
+  {
+    src: "/assets/photos/events/theater-field-2.jpg",
+    category: "events",
+    alt: "Wedding reception tables on the Theater Field",
+  },
+  {
+    src: "/assets/photos/events/theater-field-3.jpg",
+    category: "events",
+    alt: "Guests gathering on the Theater Field",
+  },
+  {
+    src: "/assets/photos/events/wedding-walk-wave.jpg",
+    category: "events",
+    alt: "Newlyweds walking through the field",
+  },
+  {
+    src: "/assets/photos/events/wedding-veil-walk.jpg",
+    category: "events",
+    alt: "Bride and groom walking past the hay bales",
+  },
+  {
+    src: "/assets/photos/events/reception-guests-table.jpg",
+    category: "events",
+    alt: "Guests at the reception table",
+  },
+  {
+    src: "/assets/photos/events/first-dance-kiss.jpg",
+    category: "events",
+    alt: "First dance kiss on the dance floor",
+  },
+  {
+    src: "/assets/photos/events/dance-floor-night-bw.jpg",
+    category: "events",
+    alt: "Guests dancing at night",
+  },
+  {
+    src: "/assets/photos/events/table-setting-night.jpg",
+    category: "events",
+    alt: "Table setting at an evening reception",
+  },
+  {
+    src: "/assets/photos/events/theater-dance-floor-bw.jpg",
+    category: "events",
+    alt: "Dancing under the Theater at night",
+  },
+  {
+    src: "/assets/photos/events/theater-hall.jpg",
+    category: "events",
+    alt: "The Theater's glass hall set for a wedding",
+  },
+  {
+    src: "/assets/photos/events/theater-field.jpg",
+    category: "events",
+    alt: "The Theater Field beside the lake",
+  },
+  {
+    src: "/assets/photos/events/forest-venue.jpg",
+    category: "events",
+    alt: "The Forest Venue lawn",
+  },
+  {
+    src: "/assets/photos/events/multifunctional-venue.jpg",
+    category: "events",
+    alt: "The Forest Multifunctional Venue",
+  },
 ];
 
 const FILTERS = {
@@ -364,32 +514,59 @@ const content = {
     heading: "Gallery",
     note: "More photos coming soon.",
     lightboxClose: "Close",
+    prevPage: "Previous",
+    nextPage: "Next",
+    pageOf: (page, total) => `Page ${page} of ${total}`,
   },
   ka: {
     eyebrow: "ერთი გახედვა",
     heading: "გალერეა",
     note: "მალე მეტი ფოტო დაემატება.",
     lightboxClose: "დახურვა",
+    prevPage: "წინა",
+    nextPage: "შემდეგი",
+    pageOf: (page, total) => `გვერდი ${page} / ${total}`,
   },
 };
+
+const PAGE_SIZE = 15;
 
 export default function Gallery() {
   const { locale } = useLanguage();
   const t = content[locale];
   const filters = FILTERS[locale];
   const [active, setActive] = useState("all");
-  const [lightbox, setLightbox] = useState(null); // index of open photo
+  const [page, setPage] = useState(1);
+  const [lightbox, setLightbox] = useState(null); // index within the current page
 
   const visible =
     active === "all"
       ? ALL_PHOTOS
       : ALL_PHOTOS.filter((p) => p.category === active);
 
+  const totalPages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const pageItems = visible.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
+
+  function selectFilter(key) {
+    setActive(key);
+    setPage(1);
+    setLightbox(null);
+  }
+
+  function goToPage(p) {
+    setPage(p);
+    setLightbox(null);
+  }
+
   function prev() {
-    setLightbox((i) => (i - 1 + visible.length) % visible.length);
+    setLightbox((i) => (i - 1 + pageItems.length) % pageItems.length);
   }
   function next() {
-    setLightbox((i) => (i + 1) % visible.length);
+    setLightbox((i) => (i + 1) % pageItems.length);
   }
 
   return (
@@ -417,10 +594,7 @@ export default function Gallery() {
                   key={f.key}
                   type="button"
                   className={`gallery-filter-btn${active === f.key ? " active" : ""}`}
-                  onClick={() => {
-                    setActive(f.key);
-                    setLightbox(null);
-                  }}
+                  onClick={() => selectFilter(f.key)}
                 >
                   {f.label}
                 </button>
@@ -430,7 +604,7 @@ export default function Gallery() {
 
           {/* Masonry-style grid */}
           <div className="gallery-grid">
-            {visible.map((photo, i) => (
+            {pageItems.map((photo, i) => (
               <button
                 key={photo.src + i}
                 type="button"
@@ -446,11 +620,33 @@ export default function Gallery() {
             ))}
           </div>
 
+          {totalPages > 1 && (
+            <div className="gallery-pager">
+              <button
+                type="button"
+                className="btn btn-outline"
+                disabled={currentPage <= 1}
+                onClick={() => goToPage(currentPage - 1)}
+              >
+                {t.prevPage}
+              </button>
+              <span>{t.pageOf(currentPage, totalPages)}</span>
+              <button
+                type="button"
+                className="btn btn-outline"
+                disabled={currentPage >= totalPages}
+                onClick={() => goToPage(currentPage + 1)}
+              >
+                {t.nextPage}
+              </button>
+            </div>
+          )}
+
           <p
             style={{
               textAlign: "center",
               color: "var(--ink-soft)",
-              marginTop: 40,
+              marginTop: 24,
               fontSize: "0.9rem",
             }}
           >
@@ -480,8 +676,8 @@ export default function Gallery() {
             ‹
           </button>
           <img
-            src={visible[lightbox].src}
-            alt={visible[lightbox].alt}
+            src={pageItems[lightbox].src}
+            alt={pageItems[lightbox].alt}
             className="lightbox-img"
             onClick={(e) => e.stopPropagation()}
           />

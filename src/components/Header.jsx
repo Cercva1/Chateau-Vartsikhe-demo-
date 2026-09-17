@@ -32,6 +32,9 @@ export default function Header() {
           <NavLink to="/rooms" onClick={() => setMenuOpen(false)}>
             {t.nav.rooms}
           </NavLink>
+          <NavLink to="/activities" onClick={() => setMenuOpen(false)}>
+            {t.nav.activities}
+          </NavLink>
           <NavLink to="/events" onClick={() => setMenuOpen(false)}>
             {t.nav.events}
           </NavLink>

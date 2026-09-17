@@ -26,12 +26,27 @@ const TILE_SLIDES = [
   ],
 ];
 
+const AJAMETI_IMAGES = [
+  "/assets/photos/nature/forest-path.jpg",
+  "/assets/photos/estate/aerial-grove-building.jpg",
+  "/assets/photos/nature/forest-boardwalk-cabin.jpg",
+  "/assets/photos/estate/garden-cottage-exterior.jpg",
+  "/assets/photos/nature/forest-window-view.jpg",
+  "/assets/photos/estate/stone-cottage-exterior.jpg",
+];
+
+// All dining photos, but only 2 of the several near-identical "two women on
+// the veranda" shots — spread apart so they don't play back to back.
 const KITCHEN_IMAGES = [
   "/assets/photos/dining/veranda-dining-bright.jpg",
-  "/assets/photos/dining/veranda-dining-1.jpg",
-  "/assets/photos/dining/veranda-dining-2.jpg",
-  "/assets/photos/dining/veranda-dining-group.jpg",
+  "/assets/photos/dining/cabbage-dish.jpg",
+  "/assets/photos/dining/carbonara.jpg",
   "/assets/photos/dining/veranda-dining-golden-hour.jpg",
+  "/assets/photos/dining/tasting-plate.jpg",
+  "/assets/photos/dining/evening-dinner-lamps.jpg",
+  "/assets/photos/dining/dessert-plate.jpg",
+  "/assets/photos/dining/terrace-lunch-hats.jpg",
+  "/assets/photos/dining/fireplace-decor.jpg",
 ];
 
 export default function Home() {
@@ -70,9 +85,9 @@ export default function Home() {
       <section className="alt">
         <div className="wrap">
           <Reveal className="split">
-            <img
-              src="/assets/rooms/forest-cabin.jpg"
-              alt="Forest cabin at Chateau Vartsikhe"
+            <Slideshow
+              images={AJAMETI_IMAGES}
+              className="split-media"
             />
             <div>
               <span className="eyebrow">{t.grounds.eyebrow}</span>

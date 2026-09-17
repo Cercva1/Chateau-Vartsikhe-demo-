@@ -229,6 +229,7 @@ nav.main {
   display: flex;
   align-items: center;
   gap: clamp(16px, 2.2vw, 34px);
+  margin-left: clamp(24px, 4vw, 56px);
 }
 nav.main a {
   font-size: 13px;
@@ -446,7 +447,7 @@ nav.main a.active::after {
   opacity: 1;
 }
 .split-media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   border-radius: 2px;
 }
 
@@ -1083,6 +1084,25 @@ footer.site .col a {
 }
 .gallery-item:hover .gallery-img {
   transform: scale(1.04);
+}
+.gallery-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 36px;
+}
+.gallery-pager span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.gallery-pager button {
+  padding: 8px 20px;
+}
+.gallery-pager button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* Lightbox */

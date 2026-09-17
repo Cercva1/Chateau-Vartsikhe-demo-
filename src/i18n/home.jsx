@@ -35,7 +35,7 @@ export const home = {
         link: "Learn more →",
       },
     ],
-    tileLinks: ["/rooms", "/about", "/events"],
+    tileLinks: ["/rooms", "/activities", "/events"],
     grounds: {
       eyebrow: "Ajameti Forest",
       heading: "Surrounded by the Ajameti forest",
@@ -90,7 +90,7 @@ export const home = {
         link: "გაიგე მეტი →",
       },
     ],
-    tileLinks: ["/rooms", "/about", "/events"],
+    tileLinks: ["/rooms", "/activities", "/events"],
     grounds: {
       eyebrow: "აჯამეთის ტყეში",
       heading: "აჯამეთის ტყით გარშემორტყმული",

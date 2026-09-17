@@ -24,6 +24,7 @@ export default function RoomDetail() {
         className="hero small"
         style={{
           backgroundImage: `url("${card.img}")`,
+          backgroundPosition: card.imgPosition,
           minHeight: "44vh",
         }}
       >
@@ -57,7 +58,7 @@ export default function RoomDetail() {
                 aspectRatio: "16 / 9",
                 backgroundImage: `url("${card.img}")`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: card.imgPosition || "center",
                 marginBottom: 32,
               }}
             />

@@ -5,9 +5,9 @@ export const aboutPage = {
       eyebrow: "Our story",
       heading: "Our history",
       shortText:
-        "Chateau Vartsikhe is a hotel and resort in Imereti, 15 minutes from Kutaisi, spread across 120 hectares.",
+        "Chateau Vartsikhe is a hotel and resort in Imereti, 15 minutes from Kutaisi, spread across 120 hectares. Its story began in 2016 with the planting of the first vineyard, and grew into a space that brings together Imeretian nature, wine, gastronomy and hospitality — welcoming its first guests in 2022.",
       fullText:
-        "Its story began in 2016 with the planting of the first vineyard. Alongside the development of viticulture and winemaking, a space was created that brings together Imeretian nature, wine, gastronomy and hospitality. In 2022, Chateau Vartsikhe welcomed its first guests.\n\nToday the complex encompasses vineyards and forest, hotel rooms and cottages, a restaurant, indoor and outdoor pools, a spa, a lake, stables, sports areas and a wide range of activities.\n\nChateau Vartsikhe also hosts weddings, private events, concerts and cultural evenings.",
+        "Today the complex encompasses vineyards and forest, hotel rooms and cottages, a restaurant, indoor and outdoor pools, a spa, a lake, stables, sports areas and a wide range of activities.\n\nChateau Vartsikhe also hosts weddings, private events, concerts and cultural evenings.",
       readMore: "Read more",
       readLess: "Read less",
     },
@@ -81,9 +81,9 @@ export const aboutPage = {
       eyebrow: "ჩვენი ისტორია",
       heading: "ჩვენი ისტორია",
       shortText:
-        "შატო ვარციხე იმერეთში, ქუთაისიდან 15 წუთის სავალზე, 120 ჰექტარზე გაშენებული სასტუმრო და დასასვენებელი კომპლექსია.",
+        "შატო ვარციხე იმერეთში, ქუთაისიდან 15 წუთის სავალზე, 120 ჰექტარზე გაშენებული სასტუმრო და დასასვენებელი კომპლექსია. მისი ისტორია 2016 წელს პირველი ვენახის გაშენებით დაიწყო და დღეს იმერულ ბუნებას, ღვინოს, გასტრონომიასა და სტუმარმასპინძლობას აერთიანებს — 2022 წელს შატო ვარციხემ პირველი სტუმრები მიიღო.",
       fullText:
-        "მისი ისტორია 2016 წელს პირველი ვენახის გაშენებით დაიწყო. მევენახეობისა და მეღვინეობის განვითარებასთან ერთად შეიქმნა სივრცე, რომელიც იმერულ ბუნებას, ღვინოს, გასტრონომიასა და სტუმარმასპინძლობას აერთიანებს. 2022 წელს შატო ვარციხემ პირველი სტუმრები მიიღო.\n\nდღეს კომპლექსი მოიცავს ვენახებსა და ტყეს, სასტუმრო ნომრებსა და კოტეჯებს, რესტორანს, ღია და დახურულ აუზებს, სპას, ტბას, საჯინიბოს, სპორტულ სივრცეებსა და მრავალფეროვან აქტივობებს.\n\nშატო ვარციხე ასევე მასპინძლობს ქორწილებს, კერძო ღონისძიებებს, კონცერტებსა და კულტურულ საღამოებს.",
+        "დღეს კომპლექსი მოიცავს ვენახებსა და ტყეს, სასტუმრო ნომრებსა და კოტეჯებს, რესტორანს, ღია და დახურულ აუზებს, სპას, ტბას, საჯინიბოს, სპორტულ სივრცეებსა და მრავალფეროვან აქტივობებს.\n\nშატო ვარციხე ასევე მასპინძლობს ქორწილებს, კერძო ღონისძიებებს, კონცერტებსა და კულტურულ საღამოებს.",
       readMore: "მეტის წაკითხვა",
       readLess: "ნაკლების ჩვენება",
     },

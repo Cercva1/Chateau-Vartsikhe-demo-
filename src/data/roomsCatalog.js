@@ -9,6 +9,11 @@
 // every room reserves through this same general page instead.
 const OTELMS_BOOKING_URL = "https://booking-114241.otelms.com/booking/rooms";
 
+// PENDING PHOTO SWAP: client flagged otskhanuri-villa, lux and oda-house as
+// showing the wrong/placeholder photo. Correct photos are coming via
+// WeTransfer with matching filenames — swap card.img for these three once
+// they arrive.
+
 // price: nightly rate WITHOUT breakfast. priceWithBreakfast: nightly rate
 // WITH breakfast included. Both from the client's official rate sheet
 // (General_Offer-AI deck). Note: Lake House's two numbers were reversed in
@@ -64,6 +69,7 @@ export const CARDS = [
     id: "stone-house-2",
     anchor: "stone-house-2",
     img: "/assets/rooms/stone-house-2.jpg",
+    imgPosition: "center 75%",
     price: 550,
     priceWithBreakfast: 690,
     maxGuests: 4,
@@ -121,6 +127,7 @@ export const CARDS = [
     id: "lux",
     anchor: "lux",
     img: "/assets/rooms/lux.jpg",
+    miniImg: "/assets/rooms/lux-bath.jpg",
     price: 390,
     priceWithBreakfast: 460,
     maxGuests: 2,

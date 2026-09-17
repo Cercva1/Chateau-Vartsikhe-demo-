@@ -12,6 +12,20 @@ const ESTATE_VIEW_IMAGES = [
   "/assets/photos/estate/aerial-veranda-building.jpg",
 ];
 
+const GROUNDS_IMAGES = [
+  "/assets/photos/activities/lake-dock-sunset.jpg",
+  "/assets/photos/estate/barn-sunset.jpg",
+  "/assets/photos/activities/lake-rowboat.jpg",
+  "/assets/photos/nature/forest-path.jpg",
+  "/assets/photos/estate/garden-gate.jpg",
+];
+
+const EVENING_IMAGES = [
+  "/assets/photos/dining/veranda-dining-golden-hour.jpg",
+  "/assets/photos/dining/evening-dinner-lamps.jpg",
+  "/assets/photos/dining/terrace-lunch-hats.jpg",
+];
+
 export default function About() {
   const { locale } = useLanguage();
   const t = aboutPage[locale];
@@ -38,7 +52,9 @@ export default function About() {
           <Reveal>
             <span className="eyebrow">{t.history.eyebrow}</span>
             <h2 style={{ margin: "12px 0 18px" }}>{t.history.heading}</h2>
-            <p>{t.history.shortText}</p>
+            <p style={{ fontSize: "1.15rem", lineHeight: 1.75 }}>
+              {t.history.shortText}
+            </p>
             {historyOpen && (
               <div style={{ marginTop: 16 }}>
                 {t.history.fullText.split("\n\n").map((para, i) => (
@@ -88,10 +104,7 @@ export default function About() {
       <section>
         <div className="wrap">
           <Reveal className="split reverse">
-            <img
-              src="/assets/photos/estate/barn-sunset.jpg"
-              alt={t.grounds.imgAlt}
-            />
+            <Slideshow images={GROUNDS_IMAGES} className="split-media" />
             <div>
               <span className="eyebrow">{t.grounds.eyebrow}</span>
               <h2>{t.grounds.heading}</h2>
@@ -158,10 +171,7 @@ export default function About() {
       <section>
         <div className="wrap">
           <Reveal className="split">
-            <img
-              src="/assets/photos/dining/veranda-dining-golden-hour.jpg"
-              alt={t.evenings.imgAlt}
-            />
+            <Slideshow images={EVENING_IMAGES} className="split-media" />
             <div>
               <span className="eyebrow">{t.evenings.eyebrow}</span>
               <h2>{t.evenings.heading}</h2>
