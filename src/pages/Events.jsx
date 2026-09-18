@@ -44,10 +44,10 @@ const content = {
         img: "/assets/photos/events/multifunctional-venue.jpg",
       },
       {
-        title: "Vineyard Terrace",
-        body: "An open-air terrace right among the vines — a backdrop of rolling greenery and the Ajameti forest beyond. Perfect for wedding ceremonies and receptions, wine dinners, and evening celebrations.",
+        title: "Vineyard",
+        body: "An open-air setting right among the vines — a backdrop of rolling greenery and the Ajameti forest beyond. Perfect for wedding ceremonies and receptions, wine dinners, and evening celebrations.",
         capacity: "Up to 100 guests",
-        img: "/assets/photos/estate/aerial-terrace-dining-3.jpg",
+        img: "/assets/photos/events/vineyard-picnic-golden.jpg",
       },
     ],
     services: {
@@ -106,10 +106,10 @@ const content = {
         img: "/assets/photos/events/multifunctional-venue.jpg",
       },
       {
-        title: "ვენახის ტერასა",
-        body: "ღია ტერასა პირდაპირ ვენახებს შორის — ფონზე მოჩანს მწვანე ბორცვები და აჯამეთის ტყე. შესანიშნავია ქორწილის ცერემონიებისა და ვახშმებისთვის.",
+        title: "ვენახი",
+        body: "ღია სივრცე პირდაპირ ვენახებს შორის — ფონზე მოჩანს მწვანე ბორცვები და აჯამეთის ტყე. შესანიშნავია ქორწილის ცერემონიებისა და ვახშმებისთვის.",
         capacity: "100-მდე სტუმარი",
-        img: "/assets/photos/estate/aerial-terrace-dining-3.jpg",
+        img: "/assets/photos/events/vineyard-picnic-golden.jpg",
       },
     ],
     services: {

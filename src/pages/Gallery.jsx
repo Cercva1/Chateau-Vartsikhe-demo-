@@ -181,6 +181,23 @@ const ALL_PHOTOS = [
     category: "pool",
     alt: "Outdoor pool loungers",
   },
+  {
+    src: "/assets/photos/pool/indoor-pool-loungers-arches.jpg",
+    category: "pool",
+    alt: "Indoor pool loungers beneath the brick arches",
+  },
+  {
+    src: "/assets/photos/pool/indoor-pool-ring-float.jpg",
+    category: "pool",
+    alt: "Indoor pool with a ring float",
+    position: "bottom",
+  },
+  {
+    src: "/assets/photos/pool/indoor-pool-cabana.jpg",
+    category: "pool",
+    alt: "Indoor pool cabana corner",
+    position: "bottom",
+  },
 
   // Nature & grounds
   {
@@ -206,29 +223,9 @@ const ALL_PHOTOS = [
 
   // Dining
   {
-    src: "/assets/photos/dining/veranda-dining-1.jpg",
-    category: "dining",
-    alt: "Dining on the veranda",
-  },
-  {
     src: "/assets/photos/dining/veranda-dining-2.jpg",
     category: "dining",
     alt: "Dining on the veranda",
-  },
-  {
-    src: "/assets/photos/dining/veranda-dining-bright.jpg",
-    category: "dining",
-    alt: "Dining on the veranda",
-  },
-  {
-    src: "/assets/photos/dining/veranda-dining-golden-hour.jpg",
-    category: "dining",
-    alt: "Evening dining on the veranda",
-  },
-  {
-    src: "/assets/photos/dining/veranda-dining-group.jpg",
-    category: "dining",
-    alt: "Guests dining on the veranda",
   },
   {
     src: "/assets/photos/dining/dessert-plate.jpg",
@@ -286,6 +283,11 @@ const ALL_PHOTOS = [
     src: "/assets/photos/wellness/sauna-bucket.jpg",
     category: "wellness",
     alt: "Sauna bucket and ladle",
+  },
+  {
+    src: "/assets/photos/wellness/sauna-porch-view.jpg",
+    category: "wellness",
+    alt: "Sauna porch overlooking the vineyard",
   },
   {
     src: "/assets/photos/pool/indoor-pool-conservatory.jpg",
@@ -614,7 +616,10 @@ export default function Gallery() {
               >
                 <div
                   className="gallery-img"
-                  style={{ backgroundImage: `url("${photo.src}")` }}
+                  style={{
+                    backgroundImage: `url("${photo.src}")`,
+                    backgroundPosition: photo.position,
+                  }}
                 />
               </button>
             ))}

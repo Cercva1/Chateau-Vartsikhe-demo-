@@ -12,13 +12,17 @@ export default function Slideshow({ images, interval = 4000, className = "" }) {
 
   return (
     <div className={`slideshow ${className}`.trim()}>
-      {images.map((src, i) => (
-        <div
-          key={src}
-          className={`slide${i === current ? " active" : ""}`}
-          style={{ backgroundImage: `url("${src}")` }}
-        />
-      ))}
+      {images.map((image, i) => {
+        const src = typeof image === "string" ? image : image.src;
+        const position = typeof image === "string" ? undefined : image.position;
+        return (
+          <div
+            key={src}
+            className={`slide${i === current ? " active" : ""}`}
+            style={{ backgroundImage: `url("${src}")`, backgroundPosition: position }}
+          />
+        );
+      })}
     </div>
   );
 }

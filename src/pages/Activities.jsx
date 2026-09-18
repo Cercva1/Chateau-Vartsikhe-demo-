@@ -12,6 +12,17 @@ const HERO_IMAGES = [
   "/assets/photos/wellness/spa-relaxation.jpg",
 ];
 
+const POOL_IMAGES = [
+  "/assets/photos/pool/outdoor-pool-wide-1.jpg",
+  "/assets/photos/pool/indoor-pool-conservatory.jpg",
+  "/assets/photos/pool/outdoor-pool-pergola-1.jpg",
+  "/assets/photos/pool/indoor-pool-leisure.jpg",
+  "/assets/photos/pool/outdoor-pool-view-1.jpg",
+  "/assets/photos/pool/indoor-pool-loungers-arches.jpg",
+  { src: "/assets/photos/pool/indoor-pool-ring-float.jpg", position: "bottom" },
+  { src: "/assets/photos/pool/indoor-pool-cabana.jpg", position: "bottom" },
+];
+
 const content = {
   en: {
     hero: { eyebrow: "Activities", heading: "Beyond the room" },
@@ -29,12 +40,17 @@ const content = {
       {
         title: "Padel",
         body: "A full padel court on site, open for guests day and night, with equipment available to rent.",
-        img: "/assets/photos/activities/aerial-padel-court.jpg",
+        img: "/assets/photos/activities/padel-court-detail.jpg",
       },
       {
         title: "Wellness & Spa",
-        body: "Massage and forest-relaxation zone for slowing down between activities, alongside the indoor and outdoor pools.",
+        body: "Massage and a forest-relaxation zone for slowing down between activities.",
         img: "/assets/photos/wellness/spa-relaxation.jpg",
+      },
+      {
+        title: "Pools",
+        body: "Swim indoors in the glass conservatory through the colder months, or outdoors by the vineyard in summer — both open to every guest on the estate.",
+        images: POOL_IMAGES,
       },
       {
         title: "The Lake",
@@ -65,12 +81,17 @@ const content = {
       {
         title: "პადელი",
         body: "სრული პადელის კორტი ადგილზე, ხელმისაწვდომია დღისა და საღამოს საათებში, ინვენტარის გაქირავებით.",
-        img: "/assets/photos/activities/aerial-padel-court.jpg",
+        img: "/assets/photos/activities/padel-court-detail.jpg",
       },
       {
         title: "ველნესი და სპა",
-        body: "მასაჟი და ტყის სარელაქსაციო სივრცე აქტივობებს შორის დასასვენებლად, შიდა და გარე აუზებთან ერთად.",
+        body: "მასაჟი და ტყის სარელაქსაციო სივრცე აქტივობებს შორის დასასვენებლად.",
         img: "/assets/photos/wellness/spa-relaxation.jpg",
+      },
+      {
+        title: "აუზები",
+        body: "შიდა აუზი, მინის ვერანდაში — ცივ სეზონზე, ხოლო გარე აუზი ვენახთან — ზაფხულში. ორივე ხელმისაწვდომია მამულის ყველა სტუმრისთვის.",
+        images: POOL_IMAGES,
       },
       {
         title: "ტბა",
@@ -131,10 +152,14 @@ export default function Activities() {
                 className={`room-card${i % 2 === 1 ? " reverse" : ""}`}
                 key={item.title}
               >
-                <div
-                  className="img"
-                  style={{ backgroundImage: `url("${item.img}")` }}
-                />
+                {item.images ? (
+                  <Slideshow images={item.images} className="img" />
+                ) : (
+                  <div
+                    className="img"
+                    style={{ backgroundImage: `url("${item.img}")` }}
+                  />
+                )}
                 <div className="body">
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
