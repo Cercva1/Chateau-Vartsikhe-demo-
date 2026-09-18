@@ -41,6 +41,7 @@ const content = {
         title: "Padel",
         body: "A full padel court on site, open for guests day and night, with equipment available to rent.",
         img: "/assets/photos/activities/padel-court-detail.jpg",
+        imgPosition: "center 68%",
       },
       {
         title: "Wellness & Spa",
@@ -82,6 +83,7 @@ const content = {
         title: "პადელი",
         body: "სრული პადელის კორტი ადგილზე, ხელმისაწვდომია დღისა და საღამოს საათებში, ინვენტარის გაქირავებით.",
         img: "/assets/photos/activities/padel-court-detail.jpg",
+        imgPosition: "center 68%",
       },
       {
         title: "ველნესი და სპა",
@@ -157,7 +159,10 @@ export default function Activities() {
                 ) : (
                   <div
                     className="img"
-                    style={{ backgroundImage: `url("${item.img}")` }}
+                    style={{
+                      backgroundImage: `url("${item.img}")`,
+                      backgroundPosition: item.imgPosition,
+                    }}
                   />
                 )}
                 <div className="body">

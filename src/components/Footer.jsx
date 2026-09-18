@@ -12,6 +12,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <Link to="/" className="logo">
+              <img src="/assets/logo-mark.png" alt="" className="logo-mark" />
               Chateau Vartsikhe<span>.</span>
             </Link>
             <p style={{ marginTop: 16, maxWidth: 280 }}>{t.footer.tagline}</p>

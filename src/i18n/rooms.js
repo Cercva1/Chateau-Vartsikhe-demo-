@@ -9,7 +9,7 @@ export const roomsPage = {
   en: {
     hero: {
       eyebrow: "All room types",
-      heading: "Twelve ways to stay at Chateau Vartsikhe",
+      heading: "Stay with us",
     },
     reserve: "Reserve",
     viewDetails: "View details",
@@ -247,7 +247,7 @@ export const roomsPage = {
   ka: {
     hero: {
       eyebrow: "ოთახების ყველა ტიპი",
-      heading: "თორმეტი გზა შატო ვარწიხეში დასარჩენად",
+      heading: "დარჩით ჩვენთან",
     },
     reserve: "დაჯავშნა",
     viewDetails: "დეტალურად",

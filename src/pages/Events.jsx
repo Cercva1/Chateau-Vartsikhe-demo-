@@ -12,7 +12,7 @@ const HERO_IMAGES = [
 
 const content = {
   en: {
-    hero: { eyebrow: "Events & Meetings", heading: "Celebrate With Us" },
+    hero: { eyebrow: "Events & Meetings", heading: "Celebrate here" },
     intro: {
       eyebrow: "Unique venues",
       heading: "From intimate gatherings to 350-guest celebrations",
@@ -77,8 +77,8 @@ const content = {
     hero: { eyebrow: "ღონისძიებები და შეხვედრები", heading: "იზეიმეთ აქ" },
     intro: {
       eyebrow: "უნიკალური სივრცეები",
-      heading: "20 სტუმრიანი ვახშმიდან 350-კაციან ზეიმამდე",
-      body: "შატო ვარციხე გთავაზობთ განსაკუთრებულ სივრცეებს ვენახებში, ტყეში და ტბასთან — გარემო, რომელიც ნებისმიერ ღონისძიებას ამ ადგილის მახსოვრობად აქცევს. ოც სტუმრიანი ინტიმური ვახშმიდან ასობით კაციანი ქორწილის ზეიმამდე — ყველაფერს თქვენთვის ვარგებთ.",
+      heading: "ქორწილები შატო ვარციხეში",
+      body: "შატო ვარციხე გთავაზობთ განსხვავებული სტილისა და მასშტაბის ქორწილების ორგანიზებას — მცირე, ინტიმური ცერემონიებიდან 400 სტუმარზე გათვლილ დიდ ქორწილებამდე.\n\nმრავალფეროვანი სივრცეები ბუნებაში, ინდივიდუალურად შერჩეული მენიუ და თითოეულ დეტალზე მორგებული მიდგომა საშუალებას გაძლევთ შექმნათ ქორწილი თქვენი სურვილისა და კონცეფციის მიხედვით.",
     },
     venues: [
       {
@@ -94,8 +94,8 @@ const content = {
         img: "/assets/photos/events/theater-field.jpg",
       },
       {
-        title: "ტყის დარბაზი",
-        body: "ტყის დარბაზი — მყუდრო საქორწილო სივრცე ტყის შუაგულში, ხეებითა და ველური ბუნებით გარშემორტყმულ ნათელ მინდორზე. იდეალურია 90 სტუმრამდე ქორწილებისთვის, ცერემონიებისა და საქორწილო სუფრებისთვის.",
+        title: "ტყე",
+        body: "ტყე — მყუდრო საქორწილო სივრცე ტყის შუაგულში, ხეებითა და ველური ბუნებით გარშემორტყმულ ნათელ მინდორზე. იდეალურია 90 სტუმრამდე ქორწილებისთვის, ცერემონიებისა და საქორწილო სუფრებისთვის.",
         capacity: "90-მდე სტუმარი",
         img: "/assets/photos/events/forest-venue.jpg",
       },
@@ -157,15 +157,19 @@ export default function Events() {
           <Reveal>
             <span className="eyebrow">{t.intro.eyebrow}</span>
             <h2 style={{ margin: "14px 0 20px" }}>{t.intro.heading}</h2>
-            <p
-              style={{
-                color: "var(--ink-soft)",
-                fontSize: "1.05rem",
-                lineHeight: 1.8,
-              }}
-            >
-              {t.intro.body}
-            </p>
+            {t.intro.body.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                style={{
+                  color: "var(--ink-soft)",
+                  fontSize: "1.05rem",
+                  lineHeight: 1.8,
+                  marginTop: i > 0 ? 14 : 0,
+                }}
+              >
+                {para}
+              </p>
+            ))}
           </Reveal>
         </div>
       </section>

@@ -22,6 +22,7 @@ export default function Header() {
     <header className={`site${scrolled ? " compact" : " at-top"}`}>
       <div className="bar">
         <Link to="/" className="logo">
+          <img src="/assets/logo-mark.png" alt="" className="logo-mark" />
           Chateau Vartsikhe<span>.</span>
         </Link>
 
