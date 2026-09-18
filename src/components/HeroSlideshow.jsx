@@ -36,7 +36,18 @@ export default function HeroSlideshow({ taglineNode, scrollLabel = "scroll" }) {
             <p>{taglineNode}</p>
           </div>
         </div>
-        <a href="#after-hero" className="scroll-cue">
+        <a
+          href="#after-hero"
+          className="scroll-cue"
+          onClick={(e) => {
+            // HashRouter owns the URL hash, so scroll manually instead of
+            // letting the browser treat "#after-hero" as a route.
+            e.preventDefault();
+            document
+              .getElementById("after-hero")
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+        >
           <span>{scrollLabel}</span>
           <div className="arrow">↓</div>
         </a>
