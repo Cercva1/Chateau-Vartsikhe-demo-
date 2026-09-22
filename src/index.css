@@ -248,7 +248,7 @@ nav.main a {
   letter-spacing: 0.04em;
   color: var(--ink-soft);
   position: relative;
-  padding: 4px 0;
+  padding: 8px 0;
   white-space: nowrap;
   transition: color 0.3s ease;
 }
@@ -697,7 +697,13 @@ section.alt {
   color: var(--ink-soft);
   margin-bottom: 20px;
 }
-.room-card .facts {
+/* .facts is used on the Rooms list, RoomDetail, About, Activities and
+   Events pages — only the Rooms-list usage is nested inside .room-card, so
+   this rule is unscoped (was `.room-card .facts`) to actually apply
+   everywhere the markup uses it. Without this, multiple <span> facts with
+   no CSS between them render as one run-together string, e.g.
+   "Sleeps 2Hotel roomKing bed4 units available". */
+.facts {
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
@@ -707,7 +713,7 @@ section.alt {
   letter-spacing: 0.04em;
   color: var(--forest-deep);
 }
-.room-card .facts span {
+.facts span {
   opacity: 0.8;
 }
 .room-card .price-row {
@@ -1037,6 +1043,35 @@ footer.site .col a {
     display: inline-block;
     text-align: center;
     margin-top: 8px;
+  }
+}
+
+/* Real bug found in mobile QA: below ~480px the header bar (logo mark +
+   "Chateau Vartsikhe." + locale switcher + hamburger) is wider than the
+   viewport. Because header.site is position:fixed, the overflow doesn't
+   produce a horizontal scrollbar — the hamburger button just silently
+   renders off-screen to the right and becomes completely unreachable.
+   Shrink the header's footprint enough to fit at 375px viewports. */
+@media (max-width: 480px) {
+  header.site .bar {
+    padding: 18px 16px;
+  }
+  header.site.compact .bar {
+    padding: 10px 16px;
+  }
+  .logo {
+    font-size: 1.05rem;
+    gap: 8px;
+  }
+  .logo-mark {
+    height: 1.9em;
+  }
+  .header-right {
+    margin-left: 10px;
+    gap: 10px;
+  }
+  .locale button {
+    padding: 11px 6px;
   }
 }
 

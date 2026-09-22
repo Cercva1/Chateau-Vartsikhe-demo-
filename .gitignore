@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# check.cjs screenshot output (regenerated on each run, not source)
+mobile-check-screens/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

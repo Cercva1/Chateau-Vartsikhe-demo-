@@ -68,13 +68,13 @@ export default function About() {
               type="button"
               onClick={() => setHistoryOpen((v) => !v)}
               style={{
-                marginTop: 16,
+                marginTop: 8,
                 background: "none",
                 border: "none",
                 color: "var(--forest-deep)",
                 fontWeight: 600,
                 cursor: "pointer",
-                padding: 0,
+                padding: "12px 0",
                 fontSize: "0.95rem",
                 textDecoration: "underline",
               }}
