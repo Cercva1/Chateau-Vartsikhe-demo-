@@ -2,7 +2,18 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const BASE = "http://localhost:4173";
+// The app uses HashRouter (see src/main.jsx) — deliberately, so the site
+// works on a plain static host (Hestia) with no server-side rewrite rules
+// for SPA fallback. That means the real route lives in the URL *hash*
+// (chateauvartsikhe.com/#/rooms), not the path — a bare BASE + "/rooms"
+// request has no hash at all, so HashRouter falls back to "/" and silently
+// renders Home instead. Baking "/#" into BASE fixes every goto() below at
+// once. (This bit us during manual QA: bare-path direct navigation looked
+// broken and cost real time to diagnose before we realized it's not a bug —
+// HashRouter is doing exactly what it's supposed to. Real in-app links
+// already render as href="#/rooms" via <Link>/<NavLink>, so normal
+// click-through browsing was never affected.)
+const BASE = "http://localhost:4173/#";
 const issues = [];
 const log = (msg) => console.log(msg);
 

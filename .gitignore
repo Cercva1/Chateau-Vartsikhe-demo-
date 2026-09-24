@@ -15,6 +15,9 @@ dist-ssr
 # check.cjs screenshot output (regenerated on each run, not source)
 mobile-check-screens/
 
+# Hestia upload packages — build artifacts, not source
+chateau-update*.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

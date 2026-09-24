@@ -23,6 +23,18 @@ const POOL_IMAGES = [
   { src: "/assets/photos/pool/indoor-pool-cabana.jpg", position: "bottom" },
 ];
 
+const GYM_IMAGES = [
+  "/assets/photos/activities/outdoor-gym-equipment.jpg",
+  "/assets/photos/activities/outdoor-gym-ping-pong.jpg",
+  "/assets/photos/activities/outdoor-gym-basketball.jpg",
+];
+
+// PENDING PHOTO: client is still sourcing real "people in a boat fishing"
+// photos for this one — using the existing lake-dock shot as a placeholder
+// so the card isn't broken/empty in the meantime. Swap this for the real
+// photo(s) once they arrive (see conversation from 2026-09-24).
+const FISHING_IMAGE = "/assets/photos/activities/lake-dock-sunset.jpg";
+
 const content = {
   en: {
     hero: { eyebrow: "Activities", heading: "Beyond the room" },
@@ -44,6 +56,11 @@ const content = {
         imgPosition: "center 68%",
       },
       {
+        title: "Outdoor Gym",
+        body: "A covered, open-air gym with cardio and strength equipment, plus a ping-pong table and basketball hoop nearby — free for every guest, any time of day.",
+        images: GYM_IMAGES,
+      },
+      {
         title: "Wellness & Spa",
         body: "Massage and a forest-relaxation zone for slowing down between activities.",
         img: "/assets/photos/wellness/spa-relaxation.jpg",
@@ -52,6 +69,11 @@ const content = {
         title: "Pools",
         body: "Swim indoors in the glass conservatory through the colder months, or outdoors by the vineyard in summer — both open to every guest on the estate.",
         images: POOL_IMAGES,
+      },
+      {
+        title: "Fishing on the Lake",
+        body: "Cast a line on the estate's private lake — rods and basic tackle available on request at the front desk.",
+        img: FISHING_IMAGE,
       },
       {
         title: "The Lake",
@@ -86,6 +108,11 @@ const content = {
         imgPosition: "center 68%",
       },
       {
+        title: "ღია სავარჯიშო მოედანი",
+        body: "დაფარული, ღია ცის ქვეშ სავარჯიშო ზონა კარდიო და ძალის ტრენაჟორებით, პინგ-პონგის მაგიდითა და კალათბურთის კალათით — უფასოა ყველა სტუმრისთვის, დღის ნებისმიერ დროს.",
+        images: GYM_IMAGES,
+      },
+      {
         title: "ველნესი და სპა",
         body: "მასაჟი და ტყის სარელაქსაციო სივრცე აქტივობებს შორის დასასვენებლად.",
         img: "/assets/photos/wellness/spa-relaxation.jpg",
@@ -94,6 +121,11 @@ const content = {
         title: "აუზები",
         body: "შიდა აუზი, მინის ვერანდაში — ცივ სეზონზე, ხოლო გარე აუზი ვენახთან — ზაფხულში. ორივე ხელმისაწვდომია მამულის ყველა სტუმრისთვის.",
         images: POOL_IMAGES,
+      },
+      {
+        title: "თევზაობა ტბაზე",
+        body: "ითევზაოთ მამულის საკუთარ ტბაზე — ანკესები და საბაზისო აღჭურვილობა ხელმისაწვდომია რეცეფციაში, მოთხოვნისამებრ.",
+        img: FISHING_IMAGE,
       },
       {
         title: "ტბა",

@@ -20,8 +20,8 @@ export const roomsPage = {
     amenitiesHeading: "What's included",
     cards: [
       {
-        eyebrow: "01 — Stone House",
-        title: "Stone House #1",
+        eyebrow: "01 — Lakeside House",
+        title: "Lakeside House #1",
         body: "A stone-and-timber house right at the forest's edge, with two bedrooms, a living room, and its own porch looking out over the trees.",
         facts: ["Sleeps 4", "2 bedrooms", "King bed", "Free WiFi"],
         priceNote: "/ night",
@@ -110,9 +110,9 @@ export const roomsPage = {
         ],
       },
       {
-        eyebrow: "06 — Stone House",
-        title: "Stone House #2",
-        body: "The second of the stone forest-edge houses, with two bedrooms, a living room, and a private porch among the trees.",
+        eyebrow: "06 — Lakeside House",
+        title: "Lakeside House #2",
+        body: "The second of the estate's two lakeside houses, with two bedrooms, a living room, and a private porch among the trees.",
         facts: ["Sleeps 4", "2 bedrooms", "King bed", "Free WiFi"],
         priceNote: "/ night",
         amenities: [

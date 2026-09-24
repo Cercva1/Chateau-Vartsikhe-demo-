@@ -169,6 +169,23 @@ header.site.at-top nav.main a.active {
 header.site.at-top nav.main a.active::after {
   background: #e9d9b8;
 }
+/* The white/transparent "at-top" nav styling above is meant for the nav
+   sitting directly over the hero image. Once the hamburger breakpoint was
+   widened (see the responsive section), that same dropdown now also opens
+   on wide "at-top" laptop views — but nav.main.open renders as a solid
+   var(--cream) panel, not the transparent hero overlay, so the white text
+   became low-contrast and hard to read against it. Force it back to the
+   normal dark nav color whenever the dropdown is actually open. */
+header.site.at-top nav.main.open a {
+  color: var(--ink-soft);
+}
+header.site.at-top nav.main.open a:hover,
+header.site.at-top nav.main.open a.active {
+  color: var(--forest-deep);
+}
+header.site.at-top nav.main.open a.active::after {
+  background: var(--forest-deep);
+}
 header.site.at-top .locale button {
   color: #fff;
   opacity: 0.7;
@@ -239,8 +256,14 @@ header.site.at-top .logo-mark {
 nav.main {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2.2vw, 34px);
-  margin-left: clamp(24px, 4vw, 56px);
+  /* Was clamp(16px, 2.2vw, 34px) / clamp(24px, 4vw, 56px) — grew *with*
+     viewport width, which fought against the extra room a wider screen was
+     supposed to provide and left almost no real margin against overflow
+     even on ostensibly "wide enough" laptops. Capped both lower so there's
+     genuine headroom, not a razor-thin fit that depends on exact font
+     rendering. */
+  gap: clamp(14px, 1.3vw, 24px);
+  margin-left: clamp(20px, 2.4vw, 40px);
 }
 nav.main a {
   font-size: 13px;
@@ -269,8 +292,8 @@ nav.main a.active::after {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 22px;
-  margin-left: clamp(16px, 3vw, 48px);
+  gap: 16px;
+  margin-left: clamp(14px, 1.6vw, 32px);
   flex-shrink: 0;
 }
 
@@ -977,7 +1000,18 @@ footer.site .col a {
 }
 
 /* ---------- responsive ---------- */
-@media (max-width: 900px) {
+
+/* Real bug found in QA: the desktop nav (8 links + logo + locale switcher +
+   "Book now") needs ~1330-1390px to lay out on one line without wrapping,
+   but this rule used to switch to the hamburger menu only below 900px.
+   Between 900-1390px the nav silently overflowed its fixed-position header
+   with no scrollbar to reveal it — on any common laptop screen (1366×768,
+   1280×800, 1440×900 at 100% OS scaling all land partly or fully in that
+   broken range) the locale switcher and "Book now" button were pushed off
+   the right edge and became completely unreachable. Moved the hamburger
+   breakpoint up to comfortably clear the worst case; grid/layout rules
+   below stay at their own, unrelated 900px breakpoint. */
+@media (max-width: 1400px) {
   nav.main {
     display: none;
   }
@@ -990,6 +1024,27 @@ footer.site .col a {
   .header-right > a.btn-primary {
     display: none;
   }
+
+  nav.main.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 20px 32px 30px;
+    border-bottom: 1px solid var(--line);
+    gap: 18px;
+  }
+  nav.main.open .nav-book-now {
+    display: inline-block;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 900px) {
   .grid-3 {
     grid-template-columns: 1fr;
   }
@@ -1025,24 +1080,6 @@ footer.site .col a {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  nav.main.open {
-    display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--cream);
-    flex-direction: column;
-    padding: 20px 32px 30px;
-    border-bottom: 1px solid var(--line);
-    gap: 18px;
-  }
-  nav.main.open .nav-book-now {
-    display: inline-block;
-    text-align: center;
-    margin-top: 8px;
   }
 }
 

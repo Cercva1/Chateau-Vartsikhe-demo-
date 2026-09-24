@@ -50,18 +50,22 @@ const content = {
         img: "/assets/photos/events/vineyard-picnic-golden.jpg",
       },
     ],
+    // EN below is my own draft translation of the client's rewritten KA
+    // list (2026-09-24), NOT client-approved copy — they said final English
+    // needs to come from them directly since a prior auto-translation
+    // produced wrong results. Swap this for their real copy once it lands.
     services: {
       eyebrow: "We take care of everything",
       heading: "Full event support",
       items: [
-        "Dedicated events manager for your planning process",
-        "In-house catering — Imeretian cuisine, international menus, custom set menus",
-        "Bar service including estate wine, cocktails and Georgian spirits",
-        "Accommodation for your guests across all twelve room types on the estate",
-        "Sound, lighting and AV equipment",
-        "Floral decoration and venue styling on request",
-        "Transfers to and from the airport and Kutaisi",
-        "Activities for guests — wine tasting, horse riding, padel and more",
+        "Personal event manager — coordinating the full planning and organization process",
+        "Diverse dining menu — Imeretian and international cuisine, plus individually tailored menus",
+        "Full bar service — estate wines, cocktails and Georgian spirits",
+        "Hotel accommodation — a range of room types and cottages for your guests",
+        "Technical support — professional sound, lighting and AV equipment",
+        "Event styling — space design tailored to your event's concept",
+        "Transfer arrangements — to/from Kutaisi and Kutaisi International Airport",
+        "Activities for guests — wine tasting, horse riding, padel and other entertainment experiences",
       ],
     },
     contact: {
@@ -116,14 +120,14 @@ const content = {
       eyebrow: "ყველაფერს ჩვენ ვაგვარებთ",
       heading: "სრული ღონისძიების მხარდაჭერა",
       items: [
-        "სპეციალური ღონისძიებების მენეჯერი დაგეგმარების პროცესისთვის",
-        "საკუთარი კვება — იმერული სამზარეულო, საერთაშორისო მენიუ, ინდივიდუალური სეტ მენიუ",
-        "ბარის სერვისი — კომპლექსის ღვინო, კოქტეილები და ქართული სპირიტები",
-        "სასტუმრო სტუმრებისთვის — ყველა 12 ტიპის ნომერი ხელმისაწვდომია",
-        "ხმოვანი, განათებისა და AV აღჭურვილობა",
-        "ყვავილებით გაფორმება და სივრცის სტაილი მოთხოვნით",
-        "ტრანსფერი აეროპორტიდან/ქუთაისიდან",
-        "სტუმრებისთვის აქტივობები — ღვინის დეგუსტაცია, ცხენოსნობა, პადელი და სხვა",
+        "ღონისძიებების პერსონალური მენეჯერი — დაგეგმვისა და ორგანიზების სრული პროცესის კოორდინაციისთვის",
+        "მრავალფეროვანი კვების მენიუ — იმერული და საერთაშორისო სამზარეულო, ასევე ინდივიდუალურად შედგენილი მენიუ",
+        "სრული ბარის სერვისი — კომპლექსის ღვინოები, კოქტეილები და ქართული სპირტიანი სასმელები",
+        "განთავსება სასტუმროში — სტუმრებისთვის სხვადასხვა ტიპის ნომრები და კოტეჯები",
+        "ტექნიკური უზრუნველყოფა — პროფესიონალური გახმოვანება, განათება და AV აღჭურვილობა",
+        "ღონისძიებების გაფორმება — სივრცის დიზაინი და მორგება ღონისძიების კონცეფციის შესაბამისად",
+        "ტრანსფერის ორგანიზება — ქუთაისიდან და ქუთაისის საერთაშორისო აეროპორტიდან",
+        "სტუმრებისთვის მრავალფეროვანი აქტივობები — ღვინის დეგუსტაცია, ცხენოსნობა, პადელი და სხვა გასართობი გამოცდილებები",
       ],
     },
     contact: {

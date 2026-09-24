@@ -326,6 +326,21 @@ const ALL_PHOTOS = [
     category: "activities",
     alt: "Watching the sunset from the lake dock",
   },
+  {
+    src: "/assets/photos/activities/outdoor-gym-equipment.jpg",
+    category: "activities",
+    alt: "Outdoor gym equipment",
+  },
+  {
+    src: "/assets/photos/activities/outdoor-gym-ping-pong.jpg",
+    category: "activities",
+    alt: "Ping-pong table at the outdoor gym",
+  },
+  {
+    src: "/assets/photos/activities/outdoor-gym-basketball.jpg",
+    category: "activities",
+    alt: "Basketball hoop at the outdoor gym",
+  },
 
   // Events & weddings
   {
